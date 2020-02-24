@@ -79,26 +79,22 @@
 	 Herd7 although comprehensive, lacks a clean documentation and necessary support for a new user.
 	</li>
 
-         <li>The principles of Litmus testing can be applied to a distributed application to study 
-		its properties with different consistency models. 
+         <li>Litmus testing when applied to a distributed application helps to study 
+		the application's semantics with different consistency models. 
          	Such a testing can help reveal bugs and developer's misinterpretation 
 		of the underlying store semantics. 
          	Prior works, including Herd7, do not provide intuitive ways of expressing and testing 
 		the desired level of consistency on a distributed application.
 	</li>
-     </ul>
-<!--
-     </p>
--->
      
-     <p style="font-size: 2.2vmin; padding-right: 20vmin; align=justify">
-        DistCheck fills in this gap by allowing programmers to specify a Litmus testcase that consists of – 
+        <li> DistCheck fills in this gap by allowing programmers to specify a Litmus testcase that consists of – 
          (a) a set of sessions, (b) an initial state of the program variables, and (c) the condition to be validated. 
          It also allows developer to specify the semantics of the underlying store using relations such as 
          session order (so), same object (same) and visibility (vis). 
          The system performs a simple symbolic execution and uses a SMT solver to check the validity of the condition. 
          In the most simplest form, each session is just a set of read and write operations.
-     </p>
+        </li>
+     </ul>
      
      <p style="font-size: 2.2vmin; padding-right: 20vmin; align=justify">
          <b><a href="https://github.com/gupta-suyash/DistCheck"> Website </a></b>
