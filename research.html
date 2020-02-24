@@ -70,15 +70,19 @@
 <!--
      <p style="font-size: 2.2vmin; padding-right: 20vmin;">
 -->
-     <ul>
+     <ul style="font-size: 2.2vmin; padding-right: 20vmin;">
 	 <li> Work done at <b>Purdue University</b></li>.
          <li><b>DistCheck</b> applies the notion of <b>Litmus testing</b> to the distributed system. 
-         Litmus testing is a principled technique used for validation of memory models. 
-         Herd7 is an exemplary tool that supports the same. 
-         The principles of Litmus testing can be applied to distributed systems to study the behavior of distributed systems 
-         on different consistency models. 
-         Such a testing can also reveal bugs and the developer false understanding of the underlying store semantics. 
-         However, there aren’t works that allow developers to express their desired consistency model and test their impact on their application.
+         Litmus testing is a key technique used for validation of memory models. 
+         Prior works have employed the seminal tool, Herd7, to achieve Litmus testing, which although comprehensive, lacks clean documentation and support for new users.
+	</li>
+
+         <li>The principles of Litmus testing can be applied to a distributed application to study 
+		its properties with different consistency models. 
+         	Such a testing can help reveal bugs and developer's misinterpretation 
+		of the underlying store semantics. 
+         	Prior works, including Herd7, do not provide intuitive ways of expressing and testing 
+		the desired level of consistency on a distributed application.
 	</li>
      </ul>
 <!--
