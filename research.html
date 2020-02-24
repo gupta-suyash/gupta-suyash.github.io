@@ -72,14 +72,14 @@
      <p style="font-size: 2.2vmin; padding-right: 20vmin;">
 -->
      <ul style="font-size: 2.2vmin; padding-right: 20vmin;">
-	 <li> Work done at <b>Purdue University</b></li>.
+	 <li> Work done at <b>Purdue University</b>.</li>
          <li><b>DistCheck</b> facilitates applying <b>Litmus testing</b> to a given distributed application. 
          Litmus testing is a key technique used for validation of memory models. 
          Prior works have employed the seminal tool, Herd7 to perform Litmus testing on their applications. 
 	 Herd7 although comprehensive, lacks a clean documentation and necessary support for a new user.
 	</li>
 
-         <li>Litmus testing when applied to a distributed application helps to study 
+        <li>Litmus testing when applied to a distributed application helps to study 
 		the application's semantics with different consistency models. 
          	Such a testing can help reveal bugs and developer's misinterpretation 
 		of the underlying store semantics. 
@@ -87,12 +87,16 @@
 		the desired level of consistency on a distributed application.
 	</li>
      
-        <li> DistCheck fills in this gap by allowing programmers to specify a Litmus testcase that consists of – 
-         (a) a set of sessions, (b) an initial state of the program variables, and (c) the condition to be validated. 
-         It also allows developer to specify the semantics of the underlying store using relations such as 
-         session order (so), same object (same) and visibility (vis). 
-         The system performs a simple symbolic execution and uses a SMT solver to check the validity of the condition. 
-         In the most simplest form, each session is just a set of read and write operations.
+        <li> DistCheck fills this gap by allowing programmers to specify a Litmus testcase that consists of:
+         	(a) a set of sessions, 
+		(b) an initial state of the program variables, and 
+		(c) the condition to be validated. 
+	        DistCheck also allows developer to specify the semantics of the underlying store 
+		using relations such as session order (so), same object (same) and visibility (vis). 
+         	Once the developer has given the required inputs, DistCheck 
+		performs a simple symbolic execution and employs the Z3 SMT solver to check the 
+		validity of the condition. 
+         	In the most simplest form, each session is just a set of read and write operations.
         </li>
      </ul>
      
