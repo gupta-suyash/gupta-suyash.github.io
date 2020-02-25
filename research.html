@@ -59,6 +59,44 @@
  <div class="row" style="padding-left: 5vmin;">
      <ul style="font-size: 2.2vmin; padding-right: 20vmin;">
 	 <li> Work done at <b>UC Davis</b>.</li>
+	 
+	 <li>Transaction commit protocols help in reaching an agreement among the participating 
+	nodes when a transaction has to be committed or aborted.
+	One of the earliest and most popular commitment protocol is the two-phase commit (2PC) protocol.
+	Prior works have shown that 2PC is <i>blocking</i>.
+	This blocking characteristics of the 2PC protocol endangers database availability and 
+	makes it unsuitable for use with the partitioned databases.
+	</li>
+
+	<li> The inherent shortcomings of the 2PC protocol led towards the design of resilient 
+	three-phase commit (3PC) protocol. 
+	The 3PC protocol introduces an additional state, which ensures there is no direct 
+	transition between the non-committable and committable states. 
+	Although this simple modification makes the 3PC protocol non-blocking under node failures, 
+	it acts as the major performance suppressant in the design of efficient distributed databases.
+	</li>
+
+	<li> We design the EasyCommit (a.k.a EC) protocol, which requires two phases of communication 
+	and is non-blocking under node failures. 
+	We associate two key insights with the design of our EC protocol:
+	(i) delaying the commitment of updates to the database until the transmission of global decision 
+	to all the participating nodes, and 
+	(ii) inducing message redundancy in the network.
+	</li>
+
+	<li> Further, we have noted that these commit protocols are employed in 
+	geographically large scale systems. 
+	Such systems, adhering to the philosophy of partitioned databases, require complex agreement 
+	protocols that are both non-blocking and topology-aware.
+	A Geo-scale aware system should take advantage of relative distance between the nodes, that is, 
+	employ clustering.  
+	Moreover, the communication across these clusters should be limited to reap benefits.
+	Hence, even EC protocol may not suit the Geo-Scale settings.
+	This led us to the design of a novel topology-aware agreement protocol for the 
+	geo-scale systems – Geo-scale EasyCommit (GEC). 
+	</li>
+
+	<li> EasyCommit (EC) was published at <b>EDBT'18</b>, while GEC was part of <b>DAPD'19</b>.</li>
 
 
  </div>
