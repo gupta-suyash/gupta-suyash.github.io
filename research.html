@@ -122,6 +122,27 @@
 
 	<ul style="font-size: 2.2vmin; padding-right: 20vmin;">
 		<li> Work done at <b>IIT Madras</b>.</li>
+		<li> Existing task parallel languages allow the programmer to express 
+		the desired amount of parallelism (a.k.a ideal parallelism), while delegating
+		the task of extracting the useful parallelism to the compiler and/or runtime.
+		</li>
+		
+		<li> Recursive Task Parallel (RTP) programs constitute an important subset 
+		of such task parallel programs.
+		In RTP programs, each task can recursively create newer tasks and wait for 
+		those respective tasks to terminate. 
+		This leads to the execution of a large number of redundant task-creation and-termination operations. 
+		Importantly, the structure of RTP programs makes it quite challenging to 
+		identify and eliminate such redundant operations.
+		</li>
+	
+		<li>
+		We design a new optimization DECAF that helps to eliminate redundant task-creation and-termination operations. 
+		Further, we show that DECAF leads to improved execution times 
+		(geometric mean of 2.14xon the Intel and 2.53x on the AMD system, with
+		respect to the state-of-the-art optimized code.
+		</li>
+		
 
 	</ul>
 	<br>
