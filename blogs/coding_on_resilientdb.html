@@ -80,7 +80,7 @@
 ResilientDB Code Walk Through
 	</p>
 
-	<p>
+	<p style="font-size: 2.2vmin;">
 Now, we try to go over ResilientDB codebase and understand different components. As ResilientDB github page provides different ways to compile and execute the code, we skip discussing those steps. 
 
 Once you have compiled the code, you will see two executables rundb and runcl. The former executable is deployed at servers while the later is used to run the client code. The starting point for rundb is main.cpp which is located in the system directory. Similarly, the starting point for runcl is client_main.cpp. 
@@ -88,12 +88,26 @@ Once you have compiled the code, you will see two executables rundb and runcl. T
 In the current version of ResilientDB, we follow the primary-backup model. In this model, one of the replicas is designated as the primary while others act as backups. We require clients to send their requests to the primary. When the primary replica receives a client request, it initiates consensus of that request. It is the task of the primary to run a consensus protocol (in our case PBFT) that ensures all the backups execute all the client requests in the same order. Further, we expect replicas to have consecutive identifiers starting from 0, that is, {0,1,2,3,….}.
 	</p>
 
+	<p style="font-size: 3vmin;">
 Configuration Parameters
+	</p>
+	
+	<p style="font-size: 2.2vmin;">
 Prior to compiling ResilientDB code, each developer has to set system configuration in config.h file. A brief description for all the important parameters can be found in ResilientDB's README. A majority of these parameters are declared in system/global.h and initialized in system/global.cpp. Next, we discuss some of the parameters relevant for this post.
-NODE_CNT (relevant declaration g_node_cnt) is used to specify the number of replicas (or servers). As ResilientDB expects a BFT environment, this should be at least a multiple of 3f+1 where f is the maximum number of byzantine replicas we wish to allow in the system.
-CLIENT_NODE_CNT (relevant declaration g_client_node_cnt) is used to specify the number of clients. The minimum value for this parameter should be one.
-BATCH_SIZE (relevant declaration g_batch_size) is used to specify the size of batch of requests. In ResilientDB, we allow both clients and replicas to batch their requests. We use batching to reduce the cost of consensus. Instead of performing consensus on a single request, the replicas reach consensus on a batch of requests. In the current version, the size of the batch should be at least 10. 
-MAX_TXN_IN_FLIGHT (relevant declaration g_inflight_max) is used to specify the number of requests sent by a client before waiting to receive a response. In specific, this parameter can be used to simulate the behavior of a large number of clients on a single machine. For example, if we have CLIENT_NODE_CNT = 1 and MAX_TXN_IN_FLIGHT = 1000, then this client will first send 1000 requests and then wait for response for at least one of these requests. In other words, this parameter also specifies the maximum number of requests that will always be in-flight from the client.
+
+	<ul>
+		<li><b>NODE_CNT</b> (relevant declaration g_node_cnt) is used to specify the number of replicas (or servers). As ResilientDB expects a BFT environment, this should be at least a multiple of 3f+1 where f is the maximum number of byzantine replicas we wish to allow in the system.
+		</li>
+
+		<li><b>CLIENT_NODE_CNT</b> (relevant declaration g_client_node_cnt) is used to specify the number of clients. The minimum value for this parameter should be one.
+		</li>
+
+		<li><b>BATCH_SIZE</b> (relevant declaration g_batch_size) is used to specify the size of batch of requests. In ResilientDB, we allow both clients and replicas to batch their requests. We use batching to reduce the cost of consensus. Instead of performing consensus on a single request, the replicas reach consensus on a batch of requests. In the current version, the size of the batch should be at least 10. 
+		</li>
+
+		<li><b>MAX_TXN_IN_FLIGHT</b> (relevant declaration g_inflight_max) is used to specify the number of requests sent by a client before waiting to receive a response. In specific, this parameter can be used to simulate the behavior of a large number of clients on a single machine. For example, if we have CLIENT_NODE_CNT = 1 and MAX_TXN_IN_FLIGHT = 1000, then this client will first send 1000 requests and then wait for response for at least one of these requests. In other words, this parameter also specifies the maximum number of requests that will always be in-flight from the client.
+		</li>
+	</ul>
 
 config.h also includes parameters that state the time to warmup (WARMUP_TIMER) and run (DONE_TIMER) the system. During the warmup, the system runs normally, that is, clients send their requests and replicas process those requests. However, no statistics are collected. One the warmup finishes, we start collecting the statistics for the time specified by DONE_TIMER. The value for these timers can be changed as per the requirement. In specific, there are several places in the codebase where we use the following check:
 while(!simulation->is_done()) 
