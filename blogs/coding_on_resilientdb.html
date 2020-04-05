@@ -77,7 +77,7 @@
 	<br>
 
 
-	<p style="font-size: 3.5vmin;">
+	<p style="font-size: 3.5vmin; color: #0000ff">
 <b>ResilientDB Code Walk Through</b>
 	</p>
 
@@ -93,7 +93,7 @@ Once you have compiled the code, you will see two executables rundb and runcl. T
 In the current version of ResilientDB, we follow the primary-backup model. In this model, one of the replicas is designated as the primary while others act as backups. We require clients to send their requests to the primary. When the primary replica receives a client request, it initiates consensus of that request. It is the task of the primary to run a consensus protocol (in our case PBFT) that ensures all the backups execute all the client requests in the same order. Further, we expect replicas to have consecutive identifiers starting from 0, that is, {0,1,2,3,….}.
 	</p>
 
-	<p style="font-size: 3vmin;">
+	<p style="font-size: 3vmin; color=#00cc00">
 Configuration Parameters
 	</p>
 	
