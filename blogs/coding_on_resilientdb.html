@@ -59,28 +59,34 @@
 
 
  <div class="row" style="padding-left: 5vmin;">
-	<p>
+	<p style="font-size: 2.2vmin;">
 <a href="https://resilientdb.com/">ResilientDB</a> is a high throughput permissioned blockchain fabric created by the team at startup MokaBlox and <a href="https://expolab.org/">Exploratory Systems Lab</a> at <a href="https://www.ucdavis.edu/">UC Davis</a>. 
 	</p>
 
-	<p>
+	<p style="font-size: 2.2vmin;">
 <b>Objectives of this Post.</b> To make the reader understand the key components of ResilientDB, which will allow the reader to design our new Byzantine-Fault Tolerant (BFT) protocols in ResilientDB or add new features to the existing codebase.
 	</p>
 
-	<p>
+	<p style="font-size: 2.2vmin;">
 <b>Expectations from the Reader.</b> We expect the reader to have a fair understanding of C++. Further, it is expected that the reader has created and designed parallel programs and understands concepts such as locks, memory pools, threads, transactions, and cryptographic entities (signatures and hashes).
 	</p>
 
-	<p>
+	<p style="font-size: 2.2vmin;">
 <b>What not is this Post.</b> In this post, we do not cover the Practical Byzantine-Fault Tolerance (PBFT) protocol. Although PBFT lies at the core of the current version of ResilientDB, we will ensure this discussion does not dive deep into the details of PBFT.
 	</p>
 
 
+	<p style="font-size: 3.5vmin;">
 ResilientDB Code Walk Through
-Now, we try to go over ResilientDB codebase and understand different components. As ResilientDB github page provides different ways to compile and execute the code, we skip discussing those steps. 
-Once you have compiled the code, you will see two executables rundb and runcl. The former executable is deployed at servers while the later is used to run the client code. The starting point for rundb is main.cpp which is located in the system directory. Similarly, the starting point for runcl is client_main.cpp. 
-In the current version of ResilientDB, we follow the primary-backup model. In this model, one of the replicas is designated as the primary while others act as backups. We require clients to send their requests to the primary. When the primary replica receives a client request, it initiates consensus of that request. It is the task of the primary to run a consensus protocol (in our case PBFT) that ensures all the backups execute all the client requests in the same order. Further, we expect replicas to have consecutive identifiers starting from 0, that is, {0,1,2,3,….}.
+	</p>
 
+	<p>
+Now, we try to go over ResilientDB codebase and understand different components. As ResilientDB github page provides different ways to compile and execute the code, we skip discussing those steps. 
+
+Once you have compiled the code, you will see two executables rundb and runcl. The former executable is deployed at servers while the later is used to run the client code. The starting point for rundb is main.cpp which is located in the system directory. Similarly, the starting point for runcl is client_main.cpp. 
+
+In the current version of ResilientDB, we follow the primary-backup model. In this model, one of the replicas is designated as the primary while others act as backups. We require clients to send their requests to the primary. When the primary replica receives a client request, it initiates consensus of that request. It is the task of the primary to run a consensus protocol (in our case PBFT) that ensures all the backups execute all the client requests in the same order. Further, we expect replicas to have consecutive identifiers starting from 0, that is, {0,1,2,3,….}.
+	</p>
 
 Configuration Parameters
 Prior to compiling ResilientDB code, each developer has to set system configuration in config.h file. A brief description for all the important parameters can be found in ResilientDB's README. A majority of these parameters are declared in system/global.h and initialized in system/global.cpp. Next, we discuss some of the parameters relevant for this post.
