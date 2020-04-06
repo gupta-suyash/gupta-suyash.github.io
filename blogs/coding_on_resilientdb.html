@@ -264,21 +264,42 @@ Transaction Managers
 In ResilientDB, we associate every client query with a transaction manager of type <mark class="code">TxnManager</mark> (in file <mark class="code">system/txn.h</mark>). If a client sends a batch of <mark class="code">100</mark> queries, then we initialize <mark class="code">100</mark> transaction managers, one per query. Each transaction manager includes an object of <mark class="code">Transaction</mark> class <mark class="code">txn</mark> that helps to identify a transaction. This <mark class="code">txn</mark> object includes, among other fields, an integer identifier <mark class="code">txn_id</mark>, which is used to determine the order of execution. There are several other important fields in the <mark class="code">TxnManager</mark>, which are required during the PBFT consensus.
 </p>
 
-We also provide functions that allow a thread to create, update and release transaction managers. In specific, the process threads call the function get_transaction_manager() of class TxnTable to create, fetch and update a transaction manager. Similarly, these threads call the function release_transaction_manager to release the memory allocated to a transaction managers. To ensure O(1) look-up, we store these transaction mangers in a data-structure that can be indexed with txn_id.
-As ResilientDB opts for a multi-threaded pipelined architecture, a specific transaction manager could be concurrently accessed by two or more threads. To prevent data race, we require each thread to lock a transaction manager before accessing any of its fields. Each thread calls unset_ready function to lock the transaction manager and set_ready function to unlock the transaction manager. Both of these functions return a boolean value and only when the returned value is true, a thread should go ahead and access the fields. If the returned value is false, then the thread needs to wait. In ResilientDB, we implement this wait in two different mechanisms. The traditional form of waiting requires a thread to wait in a while(true) loop until the lock is available. Another form of waiting is to enqueue the message back in the queue and access it later. The disadvantage with the latter technique is that the enqueued message can only be accessed after all the messages ahead of it are processed. 
+<p style="font-size: 2.2vmin;">
+We also provide functions that allow a thread to create, update and release transaction managers. In specific, the process threads call the function <mark class="code">get_transaction_manager()</mark> of class <mark class="code">TxnTable</mark> to create, fetch and update a transaction manager. Similarly, these threads call the function <mark class="code">release_transaction_manager</mark> to release the memory allocated to a transaction managers. To ensure O(1) look-up, we store these transaction mangers in a data-structure that can be indexed with <mark class="code">txn_id</mark>.
+</p>
+
+<p style="font-size: 2.2vmin;">
+As ResilientDB opts for a multi-threaded pipelined architecture, a specific transaction manager could be concurrently accessed by two or more threads. To prevent data race, we require each thread to lock a transaction manager before accessing any of its fields. Each thread calls <mark class="code">unset_ready</mark> function to lock the transaction manager and <mark class="code">set_ready</mark> function to unlock the transaction manager. Both of these functions return a <mark class="code">boolean</mark> value and only when the returned value is true, a thread should go ahead and access the fields. If the returned value is <mark class="code">false</mark>, then the thread needs to wait. In ResilientDB, we implement this wait in two different mechanisms. The traditional form of waiting requires a thread to wait in a <mark class="code">while(true)</mark> loop until the lock is available. Another form of waiting is to <i>enqueue</i> the message back in the queue and access it later. The disadvantage with the latter technique is that the enqueued message can only be accessed after all the messages ahead of it are processed. 
+</mark>
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Process Threads Queues
-ResilientDB also includes several queues for process threads. The total count for these queues and their functionalities are present in system/work_queue.cpp. These queues are used by the input threads to forward incoming messages to the process threads and employed by the process threads to communicate among each other. To implement these queues, we use the lock-free data-structures available in Boost libraries. 
-We have a dedicated queue for the Worker thread. In the code, this queue is represented as work_queue[0]. 
-Although we permit multiple Batch threads, we require these to access a common queue. In the code, this queue is represented as new_txn_queue. 
-We associate a large number of queues with the Execute thread. In specific, the Execute thread accesses a total of indexsize queues where indexsize = 2 * CLIENT_NODE_CNT * MAX_TXN_IN_FLIGHT. In the code, depending on the batch identifier, Execute thread selects a specific work_queue.
-We have a  dedicated queue for the Checkpoint thread. In the code, this queue is represented as work_queue[indexside + 1].
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
-The starting point for all the process threads is the run() function in system/worker_thread.cpp. In this function, these threads continuously check their queues for an incoming message. Once they dequeue a valid message, they start processing that message.
+<p style="font-size: 2.2vmin;">
+ResilientDB also includes several queues for process threads. The total count for these queues and their functionalities are present in <mark class="code">system/work_queue.cpp</mark>. These queues are used by the input threads to forward incoming messages to the process threads and employed by the process threads to communicate among each other. To implement these queues, we use the <i>lock-free data-structures</i> available in <a href="https://www.boost.org/">Boost libraries</a>. 
+</p>
+
+<ul style="font-size: 2.2vmin;">
+	<li>We have a dedicated queue for the Worker thread. In the code, this queue is represented as <mark class="code">work_queue[0]</mark>. </li>
+	<li>Although we permit multiple Batch threads, we require these to access a common queue. In the code, this queue is represented as <mark class="code">new_txn_queue</mark>.</li>
+	<li>We associate a large number of queues with the Execute thread. In specific, the Execute thread accesses a total of <mark class="code">indexsize</mark> queues where <mark class="code">indexsize = 2 * CLIENT_NODE_CNT * MAX_TXN_IN_FLIGHT</mark>. In the code, depending on the batch identifier, Execute thread selects a specific work_queue.</li>
+	<li>We have a  dedicated queue for the Checkpoint thread. In the code, this queue is represented as <mark class="code">work_queue[indexside + 1]</mark>.</li>
+</ul>
+
+<p style="font-size: 2.2vmin;">
+The starting point for all the process threads is the <mark class="code">run()</mark> function in <mark class="code">system/worker_thread.cpp</mark>. In this function, these threads continuously check their queues for an incoming message. Once they dequeue a valid message, they start processing that message.
+</p>
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Batch Threads
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 Batch threads are only employed by the primary replica to process incoming batches of requests from clients. At backup replicas, these threads are just idle. When a batch thread finds a message of type ClientQueryBatch in its queue, it dequeues that message and calls the function process_client_batch() (in file system/worker_thread_pbft.cpp). Next, the batch thread checks if the message has a valid client signature. If this is the case, it creates a new transaction manager for all the queries in the batch (function create_and_send_batchreq() in file system/worker_thread.cpp). At this step, the batch thread also needs to generate a unique transaction identifier for each request, which it does with the help of identifier assigned by the input thread. In general, we start transaction identifiers from 0. For example, if the BATCH_SIZE = 100, then transaction identifiers are 0–99, 100–199, 200–299, and so on.
 The batch thread also initializes various fields in the transaction manager. Finally, the batch thread creates a message of type BatchRequests, stores all the requests and enqueues it in the msg_queue. Note that the last step matches the first phase of the PBFT protocol where the primary sends a Pre-Prepare message to all the replicas.
 Although we employ locks that prevent two or more threads to concurrently access the same transaction manager, they cause a reduction in the system throughput. Hence, a design that minimizes the use of locks is more preferable. Further. in ResilientDB, each message communicated between the replicas has an associated txn_id. For client batches, this txn_id does not matter as it is sent by the client. However, once the primary creates a BatchRequests message, these identifiers help in locating the transaction and its batch. As we require each batch to include at least 10 transactions, we use this to our advantage and assign different txn_id to different messages. Thus, the txn_id assigned to a BatchRequests message is: Maximum transaction identifier in a batch - 2. For example, if the batch size is 100, the txn_id for the corresponding BatchRequests messages would be 97, 197, 297, and so on.
