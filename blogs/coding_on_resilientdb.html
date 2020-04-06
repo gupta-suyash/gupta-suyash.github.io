@@ -314,24 +314,54 @@ Although we employ locks that prevent two or more threads to concurrently access
 </p>
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Worker Thread
-To both primary and backup replicas, we provide one Worker thread. This worker thread helps in processing messages related to different phases of the PBFT protocols (BatchRequests, PBFTPrepMessage and PBFTCommitMessage). 
-At the backup replicas, it is the worker thread, which creates and initializes the transaction managers on receiving a BatchRequests message (function process_batch() in file system/worker_thread_pbft.cpp). After processing the BatchRequests message, the backup replica creates and sends PBFTPrepMessage to all the other replicas through send_pbft_prep_msgs() function (in system/txn.cpp). When a replica receives a PBFTPrepMessage from another replica, then it processes that message in process_pbft_prep_msg() function (in system/worker_thread.cpp). Once a replica receives 2f PBFTPrepMessage messages, then it creates and sends PBFTCommitMessage through send_pbft_commit_msgs() function (in system/txn.cpp). 
-For both PBFTPrepMessage and PBFTCommitMessage, we set transaction identifier to the Maximum transaction identifier in a batch. For example, if the batch size is 100, the txn_id for the corresponding PBFTPrepMessage messages would be 99, 199, 299, and so on. Further, for both PBFTPrepMessage and PBFTCommitMessage, to save costs, we do not communicate the whole batch. These messages include the identifier for the first transaction, identifier for the last request, batch size and hash, which are sufficient to identify the BatchRequests message sent by the primary.
-Once a replica receives 2f+1 PBFTCommitMessage messages, it is ready to execute this transaction. Hence, this replica creates an ExecuteMessage and enqueues it in the work_queue for the Execution Thread. Based on the batch information, the correct queue is selected for enqueuing. For the ExecuteMessage, we set transaction identifier to the Maximum transaction identifier in a batch -1. For example, if the batch size is 100, the txn_id for the corresponding ExecuteMessage messages would be 98, 198, 298, and so on.
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
+To both primary and backup replicas, we provide one Worker thread. This worker thread helps in processing messages related to different phases of the PBFT protocols (<mark class="code">BatchRequests</mark>, <mark class="code">PBFTPrepMessage</mark> and <mark class="code">PBFTCommitMessage</mark>). 
+</p>
+
+<p style="font-size: 2.2vmin;">
+At the backup replicas, it is the worker thread, which creates and initializes the transaction managers on receiving a <mark class="code">BatchRequests</mark> message (function <mark class="code">process_batch()</mark> in file <mark class="code">system/worker_thread_pbft.cpp</mark>). After processing the <mark class="code">BatchRequests</mark> message, the backup replica creates and sends <mark class="code">PBFTPrepMessage</mark> to all the other replicas through <mark class="code">send_pbft_prep_msgs()</mark> function (in <mark class="code">system/txn.cpp</mark>). When a replica receives a <mark class="code">PBFTPrepMessage</mark> from another replica, then it processes that message in <mark class="code">process_pbft_prep_msg()</mark> function (in <mark class="code">system/worker_thread.cpp</mark>). Once a replica receives <mark class="code">2f PBFTPrepMessage</mark> messages, then it creates and sends <mark class="code">PBFTCommitMessage</mark> through <mark class="code">send_pbft_commit_msgs()</mark> function (in <mark class="code">system/txn.cpp</mark>). 
+</p>
+
+<p style="font-size: 2.2vmin;">
+For both <mark class="code">PBFTPrepMessage</mark> and <mark class="code">PBFTCommitMessage</mark>, we set transaction identifier to the <mark class="code">Maximum transaction identifier in a batch</mark>. For example, if the batch size is <mark class="code">100</mark>, the <mark class="code">txn_id</mark> for the corresponding <mark class="code">PBFTPrepMessage</mark> messages would be <mark class="code">99, 199, 299</mark>, and so on. Further, for both <mark class="code">PBFTPrepMessage</mark> and <mark class="code">PBFTCommitMessage</mark>, to save costs, we do not communicate the whole batch. These messages include the identifier for the first transaction, identifier for the last request, batch size and hash, which are sufficient to identify the <mark class="code">BatchRequests</mark> message sent by the primary.
+</p>
+
+<p style="font-size: 2.2vmin;">
+Once a replica receives <mark class="code">2f+1 PBFTCommitMessage</mark> messages, it is ready to execute this transaction. Hence, this replica creates an <mark class="code">ExecuteMessage</mark> and enqueues it in the <mark class="code">work_queue</mark> for the Execution Thread. Based on the batch information, the correct queue is selected for enqueuing. For the <mark class="code">ExecuteMessage</mark>, we set transaction identifier to the <mark class="code">Maximum transaction identifier in a batch -1</mark>. For example, if the batch size is <mark class="code">100</mark>, the <mark class="code">txn_id</mark> for the corresponding <mark class="code">ExecuteMessage</mark> messages would be <mark class="code">98, 198, 298</mark>, and so on.
+</p>
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Execute Thread
-Despite the existence of a large number of queues for the Execute thread, we ensure that the execute thread always knows the next queue to dequeue. On receiving an ExecuteMessage, the execute thread calls the process_execute_msg() function in system/worker_thread.cpp. It executes all the transactions, commits their results, adds a block to the chain and sends a response to the client (message of type ClientResponseMessage). 
-Periodically, the execute thread also creates and sends checkpoints of type CheckpointMessage to all the other replicas. For the CheckpointMessage, we set transaction identifier to the Maximum transaction identifier in a batch -4. For example, if the batch size is 100, the txn_id for the corresponding ExecuteMessage messages would be 95, 195, 295, and so on.
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
+<p style="font-size: 2.2vmin;">
+Despite the existence of a large number of queues for the Execute thread, we ensure that the execute thread always knows the next queue to dequeue. On receiving an <mark class="code">ExecuteMessage</mark>, the execute thread calls the <mark class="code">process_execute_msg()</mark> function in <mark class="code">system/worker_thread.cpp</mark>. It executes all the transactions, commits their results, adds a block to the chain and sends a response to the client (message of type <mark class="code">ClientResponseMessage</mark>). 
+</p>
 
+<p style="font-size: 2.2vmin;">
+Periodically, the execute thread also creates and sends checkpoints of type <mark class="code">CheckpointMessage</mark> to all the other replicas. For the <mark class="code">CheckpointMessage</mark>, we set transaction identifier to the <mark class="code">Maximum transaction identifier in a batch -4</mark>. For example, if the batch size is <mark class="code">100</mark>, the <mark class="code">txn_id</mark> for the corresponding <mark class="code">ExecuteMessage</mark> messages would be <mark class="code">95, 195, 295</mark>, and so on.
+</p>
+
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Checkpoint Thread
-The checkpoint thread is responsible for collecting all the incoming CheckpointMessage messages. Once the checkpoint thread receives 2f+1 such messages, it considers all the transactions until that checkpoint stable and releases the memory held by those transaction managers. It is possible that execute thread is lagging behind other threads. In other words, although the system has reached a checkpoint for transactions up to 500, the execute thread has only concluded executing 200 transactions. In such a case, those transaction managers should not be deleted. Hence, the checkpoint thread undergoes a more involved condition before releasing any transaction manager.
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
+The checkpoint thread is responsible for collecting all the incoming <mark class="code">CheckpointMessage</mark> messages. Once the checkpoint thread receives <mark class="code">2f+1</mark> such messages, it considers all the transactions until that checkpoint stable and releases the memory held by those transaction managers. It is possible that execute thread is lagging behind other threads. In other words, although the system has reached a checkpoint for transactions up to <mark class="code">500</mark>, the execute thread has only concluded executing <mark class="code">200</mark> transactions. In such a case, those transaction managers should not be deleted. Hence, the checkpoint thread undergoes a more involved condition before releasing any transaction manager.
+</p>
 
 
-
-     </p>
  </div>
 
 
