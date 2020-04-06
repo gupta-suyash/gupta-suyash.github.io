@@ -105,35 +105,45 @@ Configuration Parameters
 	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 	
 	<p style="font-size: 2.2vmin;">
-Prior to compiling ResilientDB code, each developer has to set system configuration in config.h file. A brief description for all the important parameters can be found in ResilientDB's README. A majority of these parameters are declared in system/global.h and initialized in system/global.cpp. Next, we discuss some of the parameters relevant for this post.
+Prior to compiling ResilientDB code, each developer has to set system configuration in <mark class="code">config.h</mark> file. A brief description for all the important parameters can be found in ResilientDB's <mark class="code">README</mark>. A majority of these parameters are declared in <mark class="code">system/global.h</mark> and initialized in <mark class="code">system/global.cpp</mark>. Next, we discuss some of the parameters relevant for this post.
 	</p>
 
 	<ul style="font-size: 2.2vmin;">
-		<li><b>NODE_CNT</b> (relevant declaration g_node_cnt) is used to specify the number of replicas (or servers). As ResilientDB expects a BFT environment, this should be at least a multiple of 3f+1 where f is the maximum number of byzantine replicas we wish to allow in the system.
+		<li><b>NODE_CNT</b> (relevant declaration <mark class="code">g_node_cnt</mark>) is used to specify the number of replicas (or servers). As ResilientDB expects a BFT environment, this should be at least a multiple of <mark class="code">3f+1</mark> where <mark class="code">f</mark> is the maximum number of byzantine replicas we wish to allow in the system.
 		</li>
 
-		<li><b>CLIENT_NODE_CNT</b> (relevant declaration g_client_node_cnt) is used to specify the number of clients. The minimum value for this parameter should be one.
+		<li><b>CLIENT_NODE_CNT</b> (relevant declaration <mark class="code">g_client_node_cnt</mark>) is used to specify the number of clients. The minimum value for this parameter should be one.
 		</li>
 
-		<li><b>BATCH_SIZE</b> (relevant declaration g_batch_size) is used to specify the size of batch of requests. In ResilientDB, we allow both clients and replicas to batch their requests. We use batching to reduce the cost of consensus. Instead of performing consensus on a single request, the replicas reach consensus on a batch of requests. In the current version, the size of the batch should be at least 10. 
+		<li><b>BATCH_SIZE</b> (relevant declaration <mark class="code">g_batch_size</mark>) is used to specify the size of batch of requests. In ResilientDB, we allow both clients and replicas to batch their requests. We use batching to reduce the cost of consensus. Instead of performing consensus on a single request, the replicas reach consensus on a batch of requests. In the current version, the size of the batch should be at least <mark class="code">10</mark>. 
 		</li>
 
-		<li><b>MAX_TXN_IN_FLIGHT</b> (relevant declaration g_inflight_max) is used to specify the number of requests sent by a client before waiting to receive a response. In specific, this parameter can be used to simulate the behavior of a large number of clients on a single machine. For example, if we have CLIENT_NODE_CNT = 1 and MAX_TXN_IN_FLIGHT = 1000, then this client will first send 1000 requests and then wait for response for at least one of these requests. In other words, this parameter also specifies the maximum number of requests that will always be in-flight from the client.
+		<li><b>MAX_TXN_IN_FLIGHT</b> (relevant declaration <mark class="code">g_inflight_max</mark>) is used to specify the number of requests sent by a client before waiting to receive a response. In specific, this parameter can be used to simulate the behavior of a large number of clients on a single machine. For example, if we have <mark class="code">CLIENT_NODE_CNT = 1</mark> and <mark class="code">MAX_TXN_IN_FLIGHT = 1000</mark>, then this client will first send <mark class="code">1000</mark> requests and then wait for response for at least one of these requests. In other words, this parameter also specifies the maximum number of requests that will always be in-flight from the client.
 		</li>
 	</ul>
 
 	<p style="font-size: 2.2vmin;">
-config.h also includes parameters that state the time to warmup (WARMUP_TIMER) and run (DONE_TIMER) the system. During the warmup, the system runs normally, that is, clients send their requests and replicas process those requests. However, no statistics are collected. One the warmup finishes, we start collecting the statistics for the time specified by DONE_TIMER. The value for these timers can be changed as per the requirement. In specific, there are several places in the codebase where we use the following check:
+<mark class="code">config.h</mark> also includes parameters that state the time to warmup (<mark class="code">WARMUP_TIMER</mark>) and run (<mark class="code">DONE_TIMER</mark>) the system. During the warmup, the system runs normally, that is, clients send their requests and replicas process those requests. However, no statistics are collected. One the warmup finishes, we start collecting the statistics for the time specified by <mark class="code">DONE_TIMER</mark>. The value for these timers can be changed as per the requirement. In specific, there are several places in the codebase where we use the following check:
 	</p>
-while(!simulation->is_done()) 
+	
+	<p style="font-size: 2.2vmin;"><mark class="code">
+while(!simulation->is_done()) </mark>
+	</p>
 
 	<p style="font-size: 2.2vmin;">
 This condition only checks if the time specified by the DONE_TIMER has not expired. When the timer expires, then a summary of the results is outputted on the terminal. Note that ResilientDB provides summaries for each client and replica. At replicas, this summary includes a variable tput, which specifies the throughput - transactions executed per second at this replica. There are several other interesting variables in the summary. For more information on these variables have a look at statistics/stats.h.
 	</p>
 
 
+<p style="font-size: 3vmin; color: #00b33c">
 Key Exchange
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
 Once the executables are deployed at replicas and clients, they initialize necessary variables (in main.cpp). Next, we initiate the process of key generation and exchange. In ResilientDB, we provide support for both asymmetric and symmetric cryptographic signatures. We have employed Crypto++ libraries for providing different scheme. The configuration file enlists various supported signature schemes. In main.cpp (or client_main.cpp), each replica (or client) generates a signature for itself. Each replica uses the send_key() function (in system/worker_thread.cpp) to send its keys to other replicas and clients. Further, once a replica receives a key from any other replica or client, it stores it through the  process_key_exchange() function in system/worker_thread.cpp. 
+</p>
+
 In ResilientDB, we force clients to delay sending their requests until the end of this key exchange process. In specific, we require each replica to send a notification (message) to all the clients once it has received keys from all the other replicas and clients.
 
 
