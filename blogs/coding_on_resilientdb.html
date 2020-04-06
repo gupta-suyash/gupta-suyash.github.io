@@ -194,6 +194,19 @@ In ResilientDB, after successful key exchange, clients create and send their req
 
 <p style="font-size: 2.2vmin;">
 At each client, there is a Client Thread that creates a request of type <mark class="code">ClientQueryBatch</mark> and adds a batch of queries (<mark class="code">BATCH_SIZE</mark>) to that request. Next, this request is sent to the primary replica. This functionality can be found in the file <mark class="code">system/client_thread.cpp</mark>. 
+<br>
+
+
+<div class="container">
+    <div class="row" style="justify-content: space-between;display: flex;">
+        <div style="width: 50%">
+              <div class="img-container">
+                   <img src="pipeline.png" alt="Snow" style="width: 100%" border="2">
+              </div>
+        </div>
+    </div>
+</div>
+
 
 
 <br>
