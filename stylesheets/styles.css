@@ -302,3 +302,20 @@ div#content-container {
 div#header {
   padding-bottom:1em;
 }
+
+.row {
+    font-family: "Palatino";
+}
+
+
+mark.dpub {
+    color:#4d4d00;
+    background: none;
+    font-family: "Roboto";
+}
+
+mark.ptitle {
+    color:#990033;
+    background: none;
+    font-family: "Bookman";
+}
