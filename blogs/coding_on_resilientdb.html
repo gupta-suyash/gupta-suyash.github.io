@@ -95,7 +95,7 @@ Once you have compiled the code, you will see two executables <mark class="code"
 	</p>
 
 	<p style="font-size: 2.2vmin;">
-In the current version of ResilientDB, we follow the primary-backup model. In this model, one of the replicas is designated as the primary while others act as backups. We require clients to send their requests to the primary. When the primary replica receives a client request, it initiates consensus of that request. It is the task of the primary to run a consensus protocol (in our case PBFT) that ensures all the backups execute all the client requests in the same order. Further, we expect replicas to have consecutive identifiers starting from 0, that is, {0,1,2,3,….}.
+In the current version of ResilientDB, we follow the <i>primary-backup model</i>. In this model, one of the replicas is designated as the <i>primary</i> while others act as <i>backups</i>. We require clients to send their requests to the primary. When the primary replica receives a client request, it initiates <i>consensus</i> on that request. It is the task of the primary to run a consensus protocol (in our case PBFT) that ensures all the backups execute all the client requests in the same order. Further, we expect replicas to have consecutive identifiers starting from <mark class="code">0</mark>, that is, <mark class="code">{0,1,2,3,….}</mark>.
 	</p>
 	<br>
 
