@@ -93,6 +93,7 @@ Once you have compiled the code, you will see two executables rundb and runcl. T
 	<p style="font-size: 2.2vmin;">
 In the current version of ResilientDB, we follow the primary-backup model. In this model, one of the replicas is designated as the primary while others act as backups. We require clients to send their requests to the primary. When the primary replica receives a client request, it initiates consensus of that request. It is the task of the primary to run a consensus protocol (in our case PBFT) that ensures all the backups execute all the client requests in the same order. Further, we expect replicas to have consecutive identifiers starting from 0, that is, {0,1,2,3,….}.
 	</p>
+	<br>
 
 	<p style="font-size: 3vmin; color: #00b33c">
 Configuration Parameters
@@ -101,8 +102,9 @@ Configuration Parameters
 	
 	<p style="font-size: 2.2vmin;">
 Prior to compiling ResilientDB code, each developer has to set system configuration in config.h file. A brief description for all the important parameters can be found in ResilientDB's README. A majority of these parameters are declared in system/global.h and initialized in system/global.cpp. Next, we discuss some of the parameters relevant for this post.
+	</p>
 
-	<ul>
+	<ul style="font-size: 2.2vmin;">
 		<li><b>NODE_CNT</b> (relevant declaration g_node_cnt) is used to specify the number of replicas (or servers). As ResilientDB expects a BFT environment, this should be at least a multiple of 3f+1 where f is the maximum number of byzantine replicas we wish to allow in the system.
 		</li>
 
@@ -116,9 +118,14 @@ Prior to compiling ResilientDB code, each developer has to set system configurat
 		</li>
 	</ul>
 
+	<p style="font-size: 2.2vmin;">
 config.h also includes parameters that state the time to warmup (WARMUP_TIMER) and run (DONE_TIMER) the system. During the warmup, the system runs normally, that is, clients send their requests and replicas process those requests. However, no statistics are collected. One the warmup finishes, we start collecting the statistics for the time specified by DONE_TIMER. The value for these timers can be changed as per the requirement. In specific, there are several places in the codebase where we use the following check:
+	</p>
 while(!simulation->is_done()) 
+
+	<p style="font-size: 2.2vmin;">
 This condition only checks if the time specified by the DONE_TIMER has not expired. When the timer expires, then a summary of the results is outputted on the terminal. Note that ResilientDB provides summaries for each client and replica. At replicas, this summary includes a variable tput, which specifies the throughput - transactions executed per second at this replica. There are several other interesting variables in the summary. For more information on these variables have a look at statistics/stats.h.
+	</p>
 
 
 Key Exchange
