@@ -131,7 +131,7 @@ while(!simulation->is_done()) </mark>
 	</p>
 
 	<p style="font-size: 2.2vmin;">
-This condition only checks if the time specified by the DONE_TIMER has not expired. When the timer expires, then a summary of the results is outputted on the terminal. Note that ResilientDB provides summaries for each client and replica. At replicas, this summary includes a variable tput, which specifies the throughput - transactions executed per second at this replica. There are several other interesting variables in the summary. For more information on these variables have a look at statistics/stats.h.
+This condition only checks if the time specified by the <mark class="code">DONE_TIMER</mark> has not expired. When the timer expires, then a summary of the results is outputted on the terminal. Note that ResilientDB provides summaries for each client and replica. At replicas, this summary includes a variable <mark class="code">tput</mark>, which specifies the <i>throughput</i> - transactions executed per second at this replica. There are several other interesting variables in the summary. For more information on these variables have a look at <mark class="code">statistics/stats.h</mark>.
 	</p>
 
 <br>
@@ -156,7 +156,7 @@ Message Types
 <p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
 <p style="font-size: 2.2vmin;">
-In ResilientDB,  communication among replicas and clients occurs through messages. In fact message is such a core entity that we provide a separate Message class, in file transport/message.h, to create and define new message types. This base class includes several fields and functions that helps exchange information among replicas and clients. Any new message type that you want to declare should typically inherit this base class. Further, in file system/global.h,  we include an enum RemReqType that eases identifying the type of message. Hence, each new message should have an entry in this enum. 
+In ResilientDB,  communication among replicas and clients occurs through messages. In fact message is such a core entity that we provide a separate <mark class="code">Message</mark> class, in file <mark class="code">transport/message.h</mark>, to create and define new message types. This base class includes several fields and functions that helps exchange information among replicas and clients. Any new message type that you want to declare should typically inherit this base class. Further, in file <mark class="code">system/global.h</mark>, we include an <mark class="code">enum RemReqType</mark> that eases identifying the type of message. Hence, each new message should have an entry in this <mark class="code">enum</mark>. 
 </p>
 
 
@@ -167,30 +167,52 @@ Client Queries (Requests)
 <p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
 <p style="font-size: 2.2vmin;">
-In ResilientDB, after successful key exchange, clients create and send their requests. To reduce the cost of consensus, we require clients to batch their queries in a single request of type ClientQueryBatch. We allow clients to send two different types of queries:
+In ResilientDB, after successful key exchange, clients create and send their requests. To reduce the cost of consensus, we require clients to batch their queries in a single request of type <mark class="code">ClientQueryBatch</mark>. We allow clients to send two different types of queries:
 </p>
 
 <p style="font-size: 2.2vmin;">
-Clients can generate a YCSB query of type YCSBClientQueryMessage. We provide several configuration parameters that can be used to modify the characteristics of the YCSB query.
+Clients can generate a <i>YCSB</i> query of type <mark class="code">YCSBClientQueryMessage</mark>. We provide several configuration parameters that can be used to modify the characteristics of the YCSB query.
 </p>
 
 <p style="font-size: 2.2vmin;">
-Clients can generate inputs for a Banking application. Our ResilientDB is already loaded with Smart Contracts for a Banking, which allow a client to transfer, deposit or withdraw some amount. The details of these smart contracts can be found in smart_contracts/smart_contract.h.
+Clients can generate inputs for a <i>Banking application</i>. Our ResilientDB is already loaded with Smart Contracts for a Banking, which allow a client to transfer, deposit or withdraw some amount. The details of these smart contracts can be found in <mark class="code">smart_contracts/smart_contract.h</mark>.
 </p>
 
-At each client, there is a Client Thread that creates a request of type ClientQueryBatch and adds a batch of queries (BATCH_SIZE) to that request. Next, this request is sent to the primary replica. This functionality can be found in the filesystem/client_thread.cpp. 
+<p style="font-size: 2.2vmin;">
+At each client, there is a Client Thread that creates a request of type <mark class="code">ClientQueryBatch</mark> and adds a batch of queries (<mark class="code">BATCH_SIZE</mark>) to that request. Next, this request is sent to the primary replica. This functionality can be found in the file <mark class="code">system/client_thread.cpp</mark>. 
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Multi-Threaded Deep Pipelines
-In ResilientDB, to achieve high performance, we have employed a multi-threaded architecture. Further, we pipeline the tasks among the threads to allow multiple client transactions to be processed in parallel. In the current version of ResilientDB, we allow six distinct types of threads at the replicas and three different types of threads at clients. The count for each of these threads is specified in the file config.h. 
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
+In ResilientDB, to achieve high performance, we have employed a multi-threaded architecture. Further, we pipeline the tasks among the threads to allow multiple client transactions to be processed in parallel. In the current version of ResilientDB, we allow <i>six</i> distinct types of threads at the replicas and <i>three</i> different types of threads at clients. The count for each of these threads is specified in the file <mark class="code">config.h</mark>. 
+</p>
+
+<p style="font-size: 2.2vmin;">
 Following are the different types of threads at a replica.
-Input Thread (specified as REM_THREAD_CNT) fetches messages from the network and enqueues in the queue of other threads. 
-Output Thread (specified as SEND_THREAD_CNT) dequeues a message from its queue and places it on the network.
-Process Threads (specified as THREAD_CNT) run the BFT protocol, process different incoming messages, execute the transactions and sign the outgoing messages. As process threads performs several tasks, we sub-divide them into several types: Worker thread, Batch threads, Execute thread and Checkpoint thread. The total number of process threads (declared as g_thread_cnt) depends on the threads of each type. The function get_thd_id() (declared in file system/thread.h) can be used to fetch the identifier for different threads. 
-Worker thread processes most of the messages related to the PBFT protocol. In the current version, we allow only one worker thread.  In the codebase, the thread with identifier 0 points to the worker thread.
-Batch Threads initializes transaction managers and creates a batch of requests. As we allow multiple batch threads in the system, the count for these can be specified using the configuration parameter BATCH_THREADS. As each batch thread is also a process threads, so this value has to be manually added in the parameter THREAD_CNT. 
-Execute Thread is used to execute the client requests, update the database, add a block to the blockchain and create a client response. We permit only one execute thread in the system.
-Checkpoint Thread helps to create and send periodic checkpoints. We permit only one checkpoint thread in the system.
+</p>
+
+<ul style="font-size: 2.2vmin;">
+	<li><b>Input Thread</b> (specified as <mark class="code">REM_THREAD_CNT</mark>) fetches messages from the network and enqueues in the queue of other threads. </li>
+
+	<li><b>Output Thread</b> (specified as <mark class="code">SEND_THREAD_CNT</mark>) dequeues a message from its queue and places it on the network.</li>
+
+	<li><b>Process Threads</b> (specified as <mark class="code">THREAD_CNT</mark>) run the BFT protocol, process different incoming messages, execute the transactions and sign the outgoing messages. As process threads performs several tasks, we sub-divide them into several types: Worker thread, Batch threads, Execute thread and Checkpoint thread. The total number of process threads (declared as <mark class="code">g_thread_cnt</mark>) depends on the threads of each type. The function <mark class="code">get_thd_id()</mark> (declared in file <mark class="code">system/thread.h</mark>) can be used to fetch the identifier for different threads.
+
+	<ul>
+		<li><b>Worker Thread</b> processes most of the messages related to the PBFT protocol. In the current version, we allow only <i>one</i> worker thread.  In the codebase, the thread with identifier <mark class="code">0</mark> points to the worker thread.</li>
+
+		<li><b>Batch Threads</b> initializes transaction managers and creates a batch of requests. As we allow multiple batch threads in the system, the count for these can be specified using the configuration parameter <mark class="code">BATCH_THREADS</mark>. As each batch thread is also a process threads, so this value has to be manually added in the parameter <mark class="code">THREAD_CNT</mark>.</li>
+
+		<li><b>Execute Thread</b> is used to execute the client requests, update the database, add a block to the blockchain and create a client response. We permit only <i>one</i> execute thread in the system.</li>
+
+		<li><b>Checkpoint Thread</b> helps to create and send periodic checkpoints. We permit only <i>one</i> checkpoint thread in the system.</li>
+	</ul>
+</ul>
 
 In ResilientDB, each thread is created in the main.cpp (or client_main.cpp), and on calling a thread's run() function, it works till the execution is not done. 
 Input/Output Threads
