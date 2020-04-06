@@ -170,13 +170,11 @@ Client Queries (Requests)
 In ResilientDB, after successful key exchange, clients create and send their requests. To reduce the cost of consensus, we require clients to batch their queries in a single request of type <mark class="code">ClientQueryBatch</mark>. We allow clients to send two different types of queries:
 </p>
 
-<p style="font-size: 2.2vmin;">
-Clients can generate a <i>YCSB</i> query of type <mark class="code">YCSBClientQueryMessage</mark>. We provide several configuration parameters that can be used to modify the characteristics of the YCSB query.
-</p>
+<ul style="font-size: 2.2vmin;">
+	<li>Clients can generate a <i>YCSB</i> query of type <mark class="code">YCSBClientQueryMessage</mark>. We provide several configuration parameters that can be used to modify the characteristics of the YCSB query.</li>
 
-<p style="font-size: 2.2vmin;">
-Clients can generate inputs for a <i>Banking application</i>. Our ResilientDB is already loaded with Smart Contracts for a Banking, which allow a client to transfer, deposit or withdraw some amount. The details of these smart contracts can be found in <mark class="code">smart_contracts/smart_contract.h</mark>.
-</p>
+	<li>Clients can generate inputs for a <i>Banking application</i>. Our ResilientDB is already loaded with Smart Contracts for a Banking, which allow a client to transfer, deposit or withdraw some amount. The details of these smart contracts can be found in <mark class="code">smart_contracts/smart_contract.h</mark>.</li>
+</ul>
 
 <p style="font-size: 2.2vmin;">
 At each client, there is a Client Thread that creates a request of type <mark class="code">ClientQueryBatch</mark> and adds a batch of queries (<mark class="code">BATCH_SIZE</mark>) to that request. Next, this request is sent to the primary replica. This functionality can be found in the file <mark class="code">system/client_thread.cpp</mark>. 
@@ -214,16 +212,43 @@ Following are the different types of threads at a replica.
 	</ul>
 </ul>
 
-In ResilientDB, each thread is created in the main.cpp (or client_main.cpp), and on calling a thread's run() function, it works till the execution is not done. 
+<p style="font-size: 2.2vmin;">
+In ResilientDB, each thread is created in the <mark class="code">main.cpp</mark> (or <mark class="code">client_main.cpp</mark>), and on calling a thread's <mark class="code">run()</mark> function, it works till the execution is not done. 
+</p>
+
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Input/Output Threads
-In ResilientDB, for each thread, we have defined a class that represents its functionality. For input and output threads, their respective classes (InputThread and OutputThread) are defined in system/io_thread.h. In these classes, we have also defined specific functions that are run at client or server sides. 
-At the server side, each input thread receives messages from the transport layer. We have implemented transport layer functionalities in file transport/transport.cpp. In specific, we employ Nanomsg sockets to achieve socket based communication among replicas and clients. The input/output threads use these transport layer functions to receive/send messages from/to other replicas or clients.
-When an input thread receives a message, it simply places it into the work queue(work_queue). In case the message is from the client (type ClientQueryBatch), Input thread also assigns it a monotonically increasing identifier before placing it in the queue. The output thread works in the reverse direction. It dequeues a message from message queue (msg_queue) and then places it on the network. 
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
+In ResilientDB, for each thread, we have defined a class that represents its functionality. For input and output threads, their respective classes (<mark class="code">InputThread</mark> and <mark class="code">OutputThread</mark>) are defined in <mark class="code">system/io_thread.h</mark>. In these classes, we have also defined specific functions that are run at client or server sides. 
+</p>
+
+<p style="font-size: 2.2vmin;">
+At the server side, each input thread receives messages from the <i>transport layer</i>. We have implemented transport layer functionalities in file <mark class="code">transport/transport.cpp</mark>. In specific, we employ <a href="https://nanomsg.org/">Nanomsg</a> sockets to achieve socket based communication among replicas and clients. The input/output threads use these transport layer functions to receive/send messages from/to other replicas or clients.
+</p>
+
+<p style="font-size: 2.2vmin;">
+When an input thread receives a message, it simply places it into the work queue (<mark class="code">work_queue</mark>). In case the message is from the client (type <mark class="code">ClientQueryBatch</mark>), Input thread also assigns it a monotonically increasing identifier before placing it in the queue. The output thread works in the reverse direction. It dequeues a message from message queue (<mark class="code">msg_queue</mark>) and then places it on the network. 
+</p>
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Message Queues
-Message queues are employed by process threads to communicate messages to output threads so that they can be sent to other replicas. In ResilientDB, each output thread has a message queue. As there can be multiple output threads, we equally divide the messages to be placed on the network between these threads. We do this division in the enqueue() function in system/msg_queue.cpp. If a message is to be sent to only one sender (such as messages of type CL_BATCH and CL_RSP), then based on the identifier of the sender, we select the output thread. 
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
+Message queues are employed by process threads to communicate messages to output threads so that they can be sent to other replicas. In ResilientDB, each output thread has a message queue. As there can be multiple output threads, we <i>equally divide</i> the messages to be placed on the network between these threads. We do this division in the <mark class="code">enqueue()</mark> function in <mark class="code">system/msg_queue.cpp</mark>. If a message is to be sent to only one sender (such as messages of type <mark class="code">CL_BATCH</mark> and <mark class="code">CL_RSP</mark>), then based on the identifier of the sender, we select the output thread. 
+</p>
+
+<p style="font-size: 2.2vmin;">
 If a message has to be sent to multiple senders (such as BATCH_REQ and PBFT_PREP_MSG), then we place this message in the queues of both the output threads. By doing this we require all the output threads to divide the list of senders (dest vectors) among themselves. This division happens in the run() function of transport/msg_thread.cpp. 
+</p>
+
 Furthermore, prior to enqueuing a message into the queue for an output thread, each message has to be signed. Depending on the type of the message, its sign() function is called inside the enqueue() function of system/msg_queue.cpp. Depending on the number of senders and the signature scheme, we generate required number of signatures. For example, if the client sends a message m to a replica and this m will be forwarded to other replicas, then contents of m should not be sent. Hence, we sign the message using digital signatures based on ED25519 or RSA. Note that digital signatures need to be performed only once per message and can be forwarded to anyone while Message Authentication Codes (MACs) need to be done per sender.
 
 
