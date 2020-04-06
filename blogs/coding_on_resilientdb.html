@@ -134,27 +134,49 @@ while(!simulation->is_done()) </mark>
 This condition only checks if the time specified by the DONE_TIMER has not expired. When the timer expires, then a summary of the results is outputted on the terminal. Note that ResilientDB provides summaries for each client and replica. At replicas, this summary includes a variable tput, which specifies the throughput - transactions executed per second at this replica. There are several other interesting variables in the summary. For more information on these variables have a look at statistics/stats.h.
 	</p>
 
-
+<br>
 <p style="font-size: 3vmin; color: #00b33c">
 Key Exchange
 </p>
 <p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
 <p style="font-size: 2.2vmin;">
-Once the executables are deployed at replicas and clients, they initialize necessary variables (in main.cpp). Next, we initiate the process of key generation and exchange. In ResilientDB, we provide support for both asymmetric and symmetric cryptographic signatures. We have employed Crypto++ libraries for providing different scheme. The configuration file enlists various supported signature schemes. In main.cpp (or client_main.cpp), each replica (or client) generates a signature for itself. Each replica uses the send_key() function (in system/worker_thread.cpp) to send its keys to other replicas and clients. Further, once a replica receives a key from any other replica or client, it stores it through the  process_key_exchange() function in system/worker_thread.cpp. 
+Once the executables are deployed at replicas and clients, they initialize necessary variables (in <mark class="code">main.cpp</mark>). Next, we initiate the process of <i>key generation and exchange</i>. In ResilientDB, we provide support for both <i>asymmetric</i> and <i>symmetric cryptographic signatures</i>. We have employed <mark class="code">Crypto++</mark> libraries for providing different signature schemes. The configuration file enlists various supported signature schemes. In <mark class="code">main.cpp</mark> (or <mark class="code">client_main.cpp</mark>), each replica (or client) generates a signature for itself. Each replica uses the <mark class="code">send_key()</mark> function (in <mark class="code">system/worker_thread.cpp</mark>) to send its keys to other replicas and clients. Further, once a replica receives a key from any other replica or client, it stores it through the  <mark class="code">process_key_exchange()</mark> function in <mark class="code">system/worker_thread.cpp</mark>. 
 </p>
 
-In ResilientDB, we force clients to delay sending their requests until the end of this key exchange process. In specific, we require each replica to send a notification (message) to all the clients once it has received keys from all the other replicas and clients.
+<p style="font-size: 2.2vmin;">
+In ResilientDB, we force clients to <i>delay</i> sending their requests until the end of this key exchange process. In specific, we require each replica to send a notification (message) to all the clients once it has received keys from all the other replicas and clients.
+</p>
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Message Types
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
 In ResilientDB,  communication among replicas and clients occurs through messages. In fact message is such a core entity that we provide a separate Message class, in file transport/message.h, to create and define new message types. This base class includes several fields and functions that helps exchange information among replicas and clients. Any new message type that you want to declare should typically inherit this base class. Further, in file system/global.h,  we include an enum RemReqType that eases identifying the type of message. Hence, each new message should have an entry in this enum. 
+</p>
 
 
+<br>
+<p style="font-size: 3vmin; color: #00b33c">
 Client Queries (Requests)
+</p>
+<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+<p style="font-size: 2.2vmin;">
 In ResilientDB, after successful key exchange, clients create and send their requests. To reduce the cost of consensus, we require clients to batch their queries in a single request of type ClientQueryBatch. We allow clients to send two different types of queries:
+</p>
+
+<p style="font-size: 2.2vmin;">
 Clients can generate a YCSB query of type YCSBClientQueryMessage. We provide several configuration parameters that can be used to modify the characteristics of the YCSB query.
+</p>
+
+<p style="font-size: 2.2vmin;">
 Clients can generate inputs for a Banking application. Our ResilientDB is already loaded with Smart Contracts for a Banking, which allow a client to transfer, deposit or withdraw some amount. The details of these smart contracts can be found in smart_contracts/smart_contract.h.
+</p>
 
 At each client, there is a Client Thread that creates a request of type ClientQueryBatch and adds a batch of queries (BATCH_SIZE) to that request. Next, this request is sent to the primary replica. This functionality can be found in the filesystem/client_thread.cpp. 
 
