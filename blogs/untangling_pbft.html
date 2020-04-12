@@ -95,7 +95,22 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	        </div>
 	    </div>
 	</div>
+	<br>
 
+	<p style="font-size: 3vmin; color: #00b33c">
+	Primary-Backup Model
+	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">
+	PBFT follows the primary-backup model. 
+	In this model, one replica is designated as the <mark class="beauty">primary</mark> while other replicas act as
+	<mark class="beauty">backups</mark>.
+	It is the responsibility of the primary replica to achieve consensus on the order of execution for each client request. 
+	In specific, given a client request <mark class="code">m</mark>, primary needs to propose the order for this 
+	request <mark class="code">m</mark> and ensure all the backup replicas execute <mark class="code">m</mark> in the same order.
+	
+	</p>
 
 
  </div>
