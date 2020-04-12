@@ -110,6 +110,26 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	In specific, given a client request <mark class="code">m</mark>, primary needs to propose the order for this 
 	request <mark class="code">m</mark> and ensure all the backup replicas execute <mark class="code">m</mark> in the same order.
 	
+	</p><br>
+
+
+	<p style="font-size: 3vmin; color: #00b33c">
+	PBFT's Fault-Free Protocol
+	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">
+	We now analyze the working of PBFT protocol in the fault-free conditions. 
+	Fault-free conditions refer to <mark class="beauty">civil</mark> cases where none of the replicas act byzantine. 
+	In PBFT's design, we can easily show that if primary is non-faulty, then the system continues running fault-free protocol. 
+	Hence, other replicas can act byzantine but system as whole will continue making progress. 
+	</p>
+
+	<p style="font-size: 2.2vmin;">
+	To achieve byzantine fault-tolerance, PBFT assumes that the system has <mark class="code">n</mark> replicas. 
+	Of these <mark class="code">n</mark> replicas, at most <mark class="code">f</mark> can be byzantine. 
+	In specific, <mark class="code">n</mark> and <mark class="code">f</mark> are related as: <mark class="code">n &ge; 3f+1</mark>.
+
 	</p>
 
 
