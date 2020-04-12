@@ -64,12 +64,19 @@
 
  <div class="row" style="padding-left: 5vmin; line-height: 1.6;">
 	<p style="font-size: 2.2vmin;">
-Recent advances in <a href="https://www.researchgate.net/publication/325116198_Blockchain_Transaction_Processing">blockchain</a> technology has brought forth interest in the design of <mark class="beauty">Byzantine-Fault Tolerant</mark> (BFT) protocols.
+Recent advances in <a href="https://www.researchgate.net/publication/325116198_Blockchain_Transaction_Processing">blockchain</a> technology have brought forth interest in the design of <mark class="beauty">Byzantine-Fault Tolerant</mark> (BFT) protocols.
 At the core of any blockchain application is a BFT <mark class="beauty">consensus</mark> protocol. 
 This protocol states the following: <mark class="beauty">Given a client request and a set of replicas, some of which could be byzantine, the non-faulty replicas would agree on the order for this client request.</mark>
-
-
 	</p>
+
+	<p style="font-size: 2.2vmin;">
+	In OSDI'99, <a href="https://dl.acm.org/doi/10.5555/296806.296824">Castro and Liskov</a> presented the 
+	Practical Byzantine-Fault Tolerance (PBFT) that changed the landscape of BFT consensus. 
+	PBFT is often credited as the first BFT protocol that can be employed in practical settings. 
+	Following the design of PBFT, over the past two decades, several new BFT protocols have been presented. 
+	These new protocols have advocated designs that attain higher throughput than PBFT by relaxing some guarantees provided by the PBFT consensus.
+	</p>
+	 
 <br>
 
 
