@@ -106,20 +106,46 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	<br>
 
 	<p style="font-size: 3vmin; color: #00b33c">
-	Primary-Backup Model
+	Preliminaries 
 	</p>
 	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
 	<p style="font-size: 2.2vmin;">
-	PBFT follows the primary-backup model. 
+	PBFT follows the <mark class="beauty">primary-backup model</mark>. 
 	In this model, one replica is designated as the <mark class="beauty">primary</mark> while other replicas act as
 	<mark class="beauty">backups</mark>.
 	It is the responsibility of the primary replica to achieve consensus on the order of execution for each client request. 
 	In specific, given a client request <mark class="code">m</mark>, primary needs to propose the order for this 
 	request <mark class="code">m</mark> and ensure all the backup replicas execute <mark class="code">m</mark> in the same order.
 	If primary fails to reach a consensus, it is replaced by another replica.
-	
+	</p>
+
+	<p style="font-size: 2.2vmin;">	
+	To achieve byzantine fault-tolerance, PBFT assumes that the system has <mark class="code">n</mark> replicas. 
+	Of these <mark class="code">n</mark> replicas, at most <mark class="code">f</mark> can be byzantine. 
+	In specific, <mark class="code">n</mark> and <mark class="code">f</mark> are related as: <mark class="code">n &ge; 3f+1</mark>.
+	Of these <mark class="code">n</mark> replicas, one replica acts as the primary, and on receiving a client request, it initiates 
+	consensus stated by the PBFT protocol.
 	</p><br>
+
+	<p style="font-size: 2.2vmin;">
+	We employ cryptography to prevent malicious replicas from impersonating non-faulty replicas. 
+	Each client or replica employs digital signatures to sign its messages.
+	Hence, we assume {\em authenticated communication}: malicious replicas can impersonate each other, 
+	but no replica can impersonate a non-faulty replica.
+	This implies on receipt of a message <mark class="code">m</mark> from replica <mark class="code">R</mark>, 
+	one can determine that <mark class="code">R</mark> did send <mark class="code">m</mark> if <mark class="code">R</mark> 
+	is not malicious, and one can only determine that <mark class="code">m</mark> was sent by a non-faulty replica 
+	 <mark class="code">R</mark> if <mark class="code">R</mark> is non-faulty.
+	In the permissioned environment, this is a minimal requirement to deal with 
+	byzantine behavior, as otherwise byzantine replicas can impersonate all 
+	non-faulty replicas (which would lead to <i>Sybil</i> attacks).
+	Further, replicas will accept only those messages which are 
+	well-formed, that is, have valid message authentication 
+	codes or digital signatures (as applicable).
+	</p>
+
+
 
 
 	<p style="font-size: 3vmin; color: #00b33c">
@@ -135,11 +161,8 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	</p>
 
 	<p style="font-size: 2.2vmin;">
-	To achieve byzantine fault-tolerance, PBFT assumes that the system has <mark class="code">n</mark> replicas. 
-	Of these <mark class="code">n</mark> replicas, at most <mark class="code">f</mark> can be byzantine. 
-	In specific, <mark class="code">n</mark> and <mark class="code">f</mark> are related as: <mark class="code">n &ge; 3f+1</mark>.
-	Of these <mark class="code">n</mark> replicas, one replica acts as the primary, and on receiving a client request, it initiates 
-	consensus stated by the PBFT protocol.
+	
+	
 	Following are the steps of the protocol:
 
 	</p>
