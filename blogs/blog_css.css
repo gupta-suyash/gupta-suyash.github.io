@@ -8,3 +8,8 @@ mark.code {
     font-family: "Palatino";
 }
 
+
+mark.beauty {
+    color:#3366cc;
+    font-style: italic;
+}
