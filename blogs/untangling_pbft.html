@@ -76,8 +76,25 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	Following the design of PBFT, over the past two decades, several new BFT protocols have been presented. 
 	These new protocols have advocated designs that attain higher throughput than PBFT by relaxing some guarantees provided by the PBFT consensus.
 	</p>
-	 
-<br>
+
+	<p style="font-size: 2.2vmin;">
+	Despite the existence of these <i>faster</i> BFT protocols, PBFT is still employed by most of the permissioned blockchain applications.
+	But <i>why is PBFT the preferred choice of blockchain researchers?</i>
+	PBFT presents a clean design that is robust under attacks by malicious replicas.
+	In this blog post, we will untangle the mysteries of PBFT protocol and illustrate the beauty in its design. 
+	</p>
+	<br>
+
+
+	<div class="container">
+	    <div class="row" style="justify-content: space-between;display: flex;">
+	        <div style="width: 30%">
+	              <div class="img-container">
+	                   <img src="pbft_flow.png" alt="Snow" style="width: 100%" border="2">
+	              </div>
+	        </div>
+	    </div>
+	</div>
 
 
 
