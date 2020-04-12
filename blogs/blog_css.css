@@ -10,5 +10,7 @@ mark.code {
 
 
 mark.beauty {
-    color:#3366cc;
+    color:#993366;
+    background: none;
+    font-style: italic;
 }
