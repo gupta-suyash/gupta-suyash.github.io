@@ -80,10 +80,18 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	<p style="font-size: 2.2vmin;">
 	Despite the existence of these <i>faster</i> BFT protocols, PBFT is still employed by most of the permissioned blockchain applications.
 	But <i>why is PBFT the preferred choice of blockchain researchers?</i>
-	PBFT presents a clean design that is robust under attacks by malicious replicas.
-	In this blog post, we will untangle the mysteries of PBFT protocol and illustrate the beauty in its design. 
+	PBFT presents a clean design that is robust under attacks by malicious replicas. 
 	</p>
 	<br>
+
+
+	<p style="font-size: 2.2vmin;">
+<b><i>Objectives of this Post.</i></b> Untangling the mysteries of PBFT protocol and illustrating the beauty in its design.
+	</p>
+
+	<p style="font-size: 2.2vmin;">
+<b><i>Expectations from the Reader.</i></b> Fair understanding of asymmetric-key cryptographic, especially digital signatures. Knowledge of collision resistant hash functions.
+	</p><br>
 
 
 	<div class="container">
@@ -109,6 +117,7 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	It is the responsibility of the primary replica to achieve consensus on the order of execution for each client request. 
 	In specific, given a client request <mark class="code">m</mark>, primary needs to propose the order for this 
 	request <mark class="code">m</mark> and ensure all the backup replicas execute <mark class="code">m</mark> in the same order.
+	If primary fails to reach a consensus, it is replaced by another replica.
 	
 	</p><br>
 
@@ -129,8 +138,20 @@ This protocol states the following: <mark class="beauty">Given a client request 
 	To achieve byzantine fault-tolerance, PBFT assumes that the system has <mark class="code">n</mark> replicas. 
 	Of these <mark class="code">n</mark> replicas, at most <mark class="code">f</mark> can be byzantine. 
 	In specific, <mark class="code">n</mark> and <mark class="code">f</mark> are related as: <mark class="code">n &ge; 3f+1</mark>.
+	Of these <mark class="code">n</mark> replicas, one replica acts as the primary, and on receiving a client request, it initiates 
+	consensus stated by the PBFT protocol.
+	Following are the steps of the protocol:
 
 	</p>
+
+	<ul style="font-size: 2.2vmin;">
+	<li><mark class="beauty">Request.</mark> 
+	The PBFT protocol starts when a client <mark class="code">C</mark> wants a transaction <mark class="code">T</mark> to be executed. 
+	The client creates a request message <mark class="code">m</mark> that includes <mark class="code">T</mark>, 
+	signs this message and sends this request to the primary.	
+
+
+	</ul>
 
 
  </div>
