@@ -195,7 +195,19 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	<p style="font-size: 2.2vmin;">	
 	When a proposer receives a request <mark class="code">v</mark> from a client, it sends a <mark class="code">pax-prepare</mark> 
 	message to all the acceptors. 
-	This proposal includes a proposal number greater than the largest known proposal (<mark class="code">p<sub>max</sub></mark>) to this proposer.
+	This proposal includes a proposal number (<mark class="code">k</mark>)greater than the largest known proposal 
+	(<mark class="code">p<sub>max</sub></mark>) to this proposer.
+	When an acceptor receives this message, it checks if <mark class="code">k &gt; p<sub>max</sub></mark>. 
+	If this is the case, then it responds with a <mark class="code">pax-prepared</mark> message. 
+	When a proposer receives  <mark class="code">pax-prepared</mark> messages from a majority of the acceptors, then it sends a 
+	<mark class="code">pax-propose</mark> message to all the acceptors. 
+	Each acceptor receives a <mark class="code">pax-propose</mark> message that has a <mark class="code">k &#8805; p<sub>max</sub></mark>, 
+	then it responds with a <mark class="code">pax-accept</mark> message.
+	When a proposer receives  <mark class="code">pax-accept</mark> messages from a majority of the acceptors, then it sends a 
+	<mark class="code">pax-apply</mark> message to all the acceptors.
+	When an acceptor receives a <mark class="code">pax-apply</mark> message with the chosen value, it commits (or executes) the request.
+	</p>
+	
 
 	</p>
 
