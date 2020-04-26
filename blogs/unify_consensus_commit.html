@@ -184,6 +184,20 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	<br>
 
 
+	<p style="font-size: 2.2vmin;">	
+	Paxos follows the primary-backup model where one replica acts as the leader (<i>proposer</i>) and other replicas act as 
+	the backup (<i>acceptor</i>). 
+	It is also possible to same or distinct set of replicas performing the tasks of both proposer and acceptors. 
+	In the figure above, authors use the Paxos design where there can be multiple competing proposers. 
+	Note that such a design may not terminate.
+	</p>
+
+	<p style="font-size: 2.2vmin;">	
+	When a proposer receives a request <mark class="code">v</mark> from a client, it sends a <mark class="code">pax-prepare</mark> 
+	message to all the acceptors. 
+	This proposal includes a proposal number greater than the largest known proposal (<mark class="code">p<sub>max</sub></mark>) to this proposer.
+
+	</p>
 
 
 
