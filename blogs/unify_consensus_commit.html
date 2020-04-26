@@ -159,9 +159,29 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
 	<p style="font-size: 2.2vmin;">
+	Paxos is used to achieve fault-tolerant consensus in replicated systems. 
+	The key issue with the commit protocols is that the coordinator requires votes from all the participants. 
+	Further, these commit protocols are unable to handle message delays and loss. 
+	Hence, Lamport (<a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf">Paxos</a>), and 
+	Oki and Liskov (<a href="http://pmg.csail.mit.edu/papers/vr-revisited.pdf">Viewstamped Replication</a>) 
+	independently, presented the Paxos consensus protocol.
+	Paxos works in a replicated setting where there are a set of servers and each server is replica of every other server.
+	</p>
 
 	
-
+	<div class="container">
+	    <div class="row" style="justify-content: space-between;display: flex;">
+	        <div style="width: 45%">
+	              <div class="img-container">
+	                   <img src="Paxos-state.png" alt="Snow" style="width: 100%" border="2">
+			   <p style="font-size: 2.2vmin;">	
+			   <b>Paxos Consensus Protocol</b>
+			   </p>
+	              </div>
+	        </div>
+	    </div>
+	</div>
+	<br>
 
 
 
