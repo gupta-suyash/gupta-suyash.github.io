@@ -331,6 +331,19 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	</p>
 
 
+	<p style="font-size: 3vmin; color: #00b33c">
+	Replication-Only in the Cloud (Replication-PAC)
+	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">
+	Now authors consider the case of replicated databases where the system consists of replicas. 
+	They use the <mark class="code">C&#38;C</mark> framework to reach their <i>Replicated-PAC</i> (R-PAC) protocol, which is similar to 
+	<a href="http://www.vldb.org/pvldb/vol6/p661-mahmoud.pdf">Replicated Commit</a> protocol. 
+	R-PAC aims to achieve fault-tolerance in this sharded environment.
+	The key difference in design of PAC and R-PAC lies in the <i>Value Discovery</i> phase. 
+	In R-PAC, the leader only needs to wait for <i>identical</i> replies from only a majority of replicas.
+	</p>
 
 
  </div>
