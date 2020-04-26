@@ -329,6 +329,7 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	to reply and selects a value for <mark class="code">AcceptValue</mark> based on the <mark class="code">InitValue</mark> 
 	received from the cohorts (like votes in 2PC).
 	</p>
+	<br>
 
 
 	<p style="font-size: 3vmin; color: #00b33c">
@@ -345,6 +346,26 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	In R-PAC, the leader only needs to wait for <i>identical</i> replies from only a majority of replicas.
 	</p>
 
+
+	<p style="font-size: 3vmin; color: #00b33c">
+	Sharding + Replication-Only in the Cloud (Replication using SMR)
+	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">
+	Finally, authors consider a sharded-replicated system. 
+	Here, they present two solutions: (i) an State machine Replication (SMR) based solution, and 
+	(ii) a PAC like protocol. 
+	We will analyze only the SMR-based solution for this blog post.
+	</p>
+
+	<p style="font-size: 2.2vmin;">	
+	In the SMR-based design, authors explore the architecture suggested by <a href="https://dl.acm.org/doi/10.1145/2491245">Spanner</a>. 
+	Here, the data is split across shards, and at each shard, there are multiple replicas providing fault-tolerance.
+	The design is hierarchical in such systems.
+	2PC protocol is used to achieve coordination among the shards while SMR helps to recover from any failure. 
+	The coordinator decisions are hierarchically propagated across the replicas.
+	</p>
 
  </div>
 
