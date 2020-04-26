@@ -263,7 +263,23 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
 	<p style="font-size: 2.2vmin;">
-	The 
+	The C&#38;C framework tries to capture the similarities between the consensus and commit protocols in a single design. 
+	The leader and cohorts perform the following steps in this framework.
+	A client sends a <mark class="code">C&#38;C-req(v?)</mark> to the leader. 
+	In case of commit protocols, this request is an indication of transaction termination.
+	The leader would initiate the <i>leader election</i> phase  by selecting a number <mark class="code">k</mark> and 
+	sending <mark class="code">C&#38;C-elect-me</mark> message to all the cohorts. 
+	Each acceptor checks if <mark class="code">k &gt; p<sub>max</sub></mark>. 
+	If this is the case, the acceptor replies with <mark class="code">C&#38;C-elect-you</mark> message. 
+	This message can also include any previously accepted value. 
+	Once a leader receives messages from a majority of acceptors, it starts <i>Value Discovery</i> phase.
+	If the <mark class="code">C&#38;C-elect-you</mark> message includes any value, then leader selects that value. 
+	Otherwise, akin to 2PC, it sends  <mark class="code">C&#38;C-get-value</mark> to all cohorts and waits for 
+	<mark class="code">C&#38;C-value</mark> from all cohorts.
+	The leader now initiates the <i>FT-Agreement</i> phase, sends a <mark class="code">C&#38;C-ft-agree</mark> to each cohort 
+	and waits for <mark class="code">C&#38;C-ft-agreed</mark> from a majority of the cohorts.
+	The leader finally propagates the <i>decision</i> by sending <mark class="code">C&#38;C-apply</mark> messages to all the cohorts.
+	
 	</p>
 
 
