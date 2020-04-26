@@ -101,34 +101,33 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	Consensus and Commit protocols are prevalent in distributed and database applications. 
 	These protocols aim at helping nodes (or servers) reach a common decision even in the presence of failures.
 	Authors claim that a single unified model can help in achieving a intuitive framework, which explains a large set of existing commit and consensus protocols.
-	Such a framework can also highlight the distinction in different types of protocols. 
+	Such a framework can also highlight the distinction between different types of protocols. 
+	Moreover, this framework can be employed to design newer efficient protocols.
+	</p><br>
+
+
+	<p style="font-size: 3vmin; color: #00b33c">
+	Two-Phase Commit Protocol
+	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">	
+	The two-phase Commit (2PC) protocol is used to achieve atomic commitment in <i>partitioned databases</i>.
+	Partitioned databases are akin to <i>sharded</i>systems where each partition includes a subset of data items. 
+	Any incoming client transaction could require access to one or more partitions. 
+	If the transaction requires access to multiple partitions, then it is termed as a distributed transaction. 
 	</p>
 
 	<p style="font-size: 2.2vmin;">	
-	To achieve byzantine fault-tolerance, PBFT assumes that the system has <mark class="code">n</mark> replicas. 
-	Of these <mark class="code">n</mark> replicas, at most <mark class="code">f</mark> can be byzantine. 
-	In specific, <mark class="code">n</mark> and <mark class="code">f</mark> are related as: <mark class="code">n &ge; 3f+1</mark>.
-	Of these <mark class="code">n</mark> replicas, one replica acts as the primary, and on receiving a client request, it initiates 
-	consensus stated by the PBFT protocol.
+	To ensure a common order for all the transactions (distributed or otherwise), these systems employ a 
+	<a href="http://www.vldb.org/pvldb/vol12/p611-maiyya.pdf">concurrency control</a> (CC) 
+	protocol such as two-phase locking (2PL), timestamped, MVCC and so on.
+	In case of distributed transactions, coordination is required between multiple partitions as each partition 
+	could have independently decided to <i>commit</i> or <i>abort</i> the transaction. 
+	Existing works employ a commit protocol to achieve coordination among the partitions. 
 	</p>
 
-	<p style="font-size: 2.2vmin;">
-	We employ cryptography to prevent malicious replicas from impersonating non-faulty replicas. 
-	Each client or replica employs digital signatures to sign its messages.
-	Hence, we assume <mark class="beauty">authenticated communication</mark>: malicious replicas can impersonate each other, 
-	but no replica can impersonate a non-faulty replica.
-	This implies on receipt of a message <mark class="code">m</mark> from replica <mark class="code">R</mark>, 
-	one can determine that <mark class="code">R</mark> did send <mark class="code">m</mark> if <mark class="code">R</mark> 
-	is not malicious, and one can only determine that <mark class="code">m</mark> was sent by a non-faulty replica 
-	 <mark class="code">R</mark> if <mark class="code">R</mark> is non-faulty.
-	In the permissioned environment, this is a minimal requirement to deal with 
-	byzantine behavior, as otherwise byzantine replicas can impersonate all 
-	non-faulty replicas (which would lead to <i>Sybil</i> attacks).
-	Further, replicas will accept only those messages which are 
-	well-formed, that is, have valid message authentication 
-	codes or digital signatures (as applicable).
-	</p><br>
-
+	
 
 
 
