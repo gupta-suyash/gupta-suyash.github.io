@@ -122,7 +122,7 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	              <div class="img-container">
 	                   <img src="2pc-state.png" alt="Snow" style="width: 100%" border="2">
 			   <p style="font-size: 2.2vmin;">	
-			   Two-Phase Commit Protocol
+			   <b>Two-Phase Commit Protocol</b>
 			   </p>
 	              </div>
 	        </div>
@@ -130,8 +130,36 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	</div>
 	<br>
 
+	<p style="font-size: 2.2vmin;">	
 	Jim Gray proposed the <a href="https://link.springer.com/chapter/10.1007/3-540-08755-9_9">Two-phase Commit</a> to 
-	achieve coordination among the partitions.
+	achieve coordination among the partitions. 
+	We use the diagram from the paper to explain how 2PC works as later it will help to achieve a generalized framework.
+	2PC protocol is run in a coordinator-cohort setting where coordinator starts the protocol and cohorts respond to the coordinator.
+	When the request is completed at all the partitions (<mark class="code">2PC-req(v)</mark>), the coordinator sends a 
+	<mark class="code">2PC-get-votes</mark> message to all the cohorts. 
+	Each cohort on receiving this message sends its vote, <mark class="code">2PC-yes</mark> (commit) or 
+	<mark class="code">2PC-no</mark>(abort) to the coordinator. 
+	When coordinator receives votes from all the partitions, it makes a decision and sends the message <mark class="code">2PC-decision</mark> 
+	to all the cohorts. 
+	This decision is to abort the transaction if at least one partition votes to abort, otherwise it is a commit.
+	</p>
+
+	<p style="font-size: 2.2vmin;">	
+	Prior works have shown that 2PC is a blocking protocol, that is, partitions are unable to make progress in 
+	case coordinator or cohorts failures. 
+	Hence, there are several non-blocking protocols such as <a href="https://dl.acm.org/doi/pdf/10.1145/582318.582339">Three-phase commit</a>, 
+	<a href=""https://openproceedings.org/2018/conf/edbt/paper-65.pdf>EasyCommit</a>, and so on.
+	</p><br>
+
+
+
+	<p style="font-size: 3vmin; color: #00b33c">
+	Paxos Consensus Protocol
+	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">
+
 	
 
 
