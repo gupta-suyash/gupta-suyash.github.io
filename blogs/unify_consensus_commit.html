@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Suyash Gupta</title>
+    
+<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Blog specific CSS -->
+<link rel="stylesheet" href="blog_css.css">
+
+</head>
+<style>
+.index-img{
+    width: 20vmin;
+    height: 20vmin;
+}
+</style>    
+ <body>
+ <div>
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!--Navigation bar header-->
+    <!--
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    -->
+    <ul class="nav navbar-nav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../publication.html">Publications</a></li>
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../mentor.html">Mentoring</a></li>
+     <li><a href="../distributedgossips.html">Distributed Gossips</a></li>
+    </ul>
+      
+  </div>
+</nav>
+ 
+ <div class="row" style="padding-left: 5vmin;">
+     <p style="color: #692FBF; font-size: 4vmin;"><b>Unifying Consensus and Atomic Commitment for Effective Cloud Data Management</b></p>
+     <p style="color: #692FBF;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+ </div>
+ <br>
+
+
+ <div class="row" style="padding-left: 5vmin; line-height: 1.6;">
+	<p style="font-size: 2.2vmin;">
+Recent advances in <a href="https://www.researchgate.net/publication/325116198_Blockchain_Transaction_Processing">blockchain</a> technology have brought forth interest in the design of <mark class="beauty">Byzantine-Fault Tolerant</mark> (BFT) protocols.
+At the core of any blockchain application is a BFT <mark class="beauty">consensus</mark> protocol. 
+This protocol states the following: <mark class="beauty">Given a client request and a set of replicas, some of which could be byzantine, the non-faulty replicas would agree on the order for this client request.</mark>
+	</p>
+
+	<p style="font-size: 2.2vmin;">
+	In OSDI'99, <a href="https://dl.acm.org/doi/10.5555/296806.296824">Castro and Liskov</a> presented the 
+	Practical Byzantine-Fault Tolerance (PBFT) that changed the landscape of BFT consensus. 
+	PBFT is often credited as the first BFT protocol that can be employed in practical settings. 
+	Following the design of PBFT, over the past two decades, several new BFT protocols have been presented. 
+	These new protocols have advocated designs that attain higher throughput than PBFT by relaxing some guarantees provided by the PBFT consensus.
+	</p>
+
+	<p style="font-size: 2.2vmin;">
+	Despite the existence of these <i>faster</i> BFT protocols, PBFT is still employed by most of the permissioned blockchain applications.
+	But <i>why is PBFT the preferred choice of blockchain researchers?</i>
+	PBFT presents a clean design that is robust under attacks by malicious replicas. 
+	</p>
+	<br>
+
+
+	<p style="font-size: 2.2vmin;">
+<b><i>Objectives of this Post.</i></b> Untangling the mysteries of PBFT protocol and illustrating the beauty in its design.
+	</p>
+
+	<p style="font-size: 2.2vmin;">
+<b><i>Expectations from the Reader.</i></b> Fair understanding of asymmetric-key cryptographic, especially digital signatures. Knowledge of collision resistant hash functions.
+	</p><br>
+
+
+	<div class="container">
+	    <div class="row" style="justify-content: space-between;display: flex;">
+	        <div style="width: 45%">
+	              <div class="img-container">
+	                   <img src="pbft_flow.png" alt="Snow" style="width: 100%" border="2">
+	              </div>
+	        </div>
+	    </div>
+	</div>
+	<br>
+
+	<p style="font-size: 3vmin; color: #00b33c">
+	Preliminaries 
+	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">
+	PBFT follows the <mark class="beauty">primary-backup model</mark>. 
+	In this model, one replica is designated as the <mark class="beauty">primary</mark> while other replicas act as
+	<mark class="beauty">backups</mark>.
+	It is the responsibility of the primary replica to achieve consensus on the order of execution for each client request. 
+	In specific, given a client request <mark class="code">m</mark>, primary needs to propose the order for this 
+	request <mark class="code">m</mark> and ensure all the backup replicas execute <mark class="code">m</mark> in the same order.
+	If primary fails to reach a consensus, it is replaced by another replica.
+	</p>
+
+	<p style="font-size: 2.2vmin;">	
+	To achieve byzantine fault-tolerance, PBFT assumes that the system has <mark class="code">n</mark> replicas. 
+	Of these <mark class="code">n</mark> replicas, at most <mark class="code">f</mark> can be byzantine. 
+	In specific, <mark class="code">n</mark> and <mark class="code">f</mark> are related as: <mark class="code">n &ge; 3f+1</mark>.
+	Of these <mark class="code">n</mark> replicas, one replica acts as the primary, and on receiving a client request, it initiates 
+	consensus stated by the PBFT protocol.
+	</p>
+
+	<p style="font-size: 2.2vmin;">
+	We employ cryptography to prevent malicious replicas from impersonating non-faulty replicas. 
+	Each client or replica employs digital signatures to sign its messages.
+	Hence, we assume <mark class="beauty">authenticated communication</mark>: malicious replicas can impersonate each other, 
+	but no replica can impersonate a non-faulty replica.
+	This implies on receipt of a message <mark class="code">m</mark> from replica <mark class="code">R</mark>, 
+	one can determine that <mark class="code">R</mark> did send <mark class="code">m</mark> if <mark class="code">R</mark> 
+	is not malicious, and one can only determine that <mark class="code">m</mark> was sent by a non-faulty replica 
+	 <mark class="code">R</mark> if <mark class="code">R</mark> is non-faulty.
+	In the permissioned environment, this is a minimal requirement to deal with 
+	byzantine behavior, as otherwise byzantine replicas can impersonate all 
+	non-faulty replicas (which would lead to <i>Sybil</i> attacks).
+	Further, replicas will accept only those messages which are 
+	well-formed, that is, have valid message authentication 
+	codes or digital signatures (as applicable).
+	</p><br>
+
+
+
+
+
+
+
+ </div>
+
+
+
+</div>     
+ </body>
+</html>
