@@ -279,8 +279,58 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	The leader now initiates the <i>FT-Agreement</i> phase, sends a <mark class="code">C&#38;C-ft-agree</mark> to each cohort 
 	and waits for <mark class="code">C&#38;C-ft-agreed</mark> from a majority of the cohorts.
 	The leader finally propagates the <i>decision</i> by sending <mark class="code">C&#38;C-apply</mark> messages to all the cohorts.
-	
+	</p><br>
+
+
+	<div class="container">
+	    <div class="row" style="justify-content: space-between;display: flex;">
+	        <div style="width: 45%">
+	              <div class="img-container">
+	                   <img src="pac-state.png" alt="Snow" style="width: 100%" border="2">
+			   <p style="font-size: 2.2vmin;">	
+			   <b>Paxos Atomic Commitment Protocol</b>
+			   </p>
+	              </div>
+	        </div>
+	    </div>
+	</div>
+	<br>
+
+	<p style="font-size: 3vmin; color: #00b33c">
+	Sharding-Only in the Cloud (Paxos Atomic Commitment)
 	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">
+	Now authors consider the case of traditional partitioned databases where there is no replication. 
+	They use the <mark class="code">C&#38;C</mark> framework to reach their <i>Paxos Atomic Commitment</i> (PAC), which is similar to 
+	<a href="https://dl.acm.org/doi/10.1145/212433.212468">E3PC</a> protocol. 
+	PAC aims to achieve fault-tolerance in this sharded environment.
+	</p>
+
+	<p style="font-size: 2.2vmin;">	
+	In PAC, the leader election and value discovery phases are merged together. 
+	As a result, the leader needs responses from all the cohorts (in initial round) and from a majority in subsequent election.
+	Further, PAC assumes a single leader (no competition).
+	The flow of the phases in this protocol is quite similar to what we discussed above. 
+	The key distinction is use of a set of variables: <mark class="code">InitValue, AcceptNum, AcceptVal and Decision</mark>. 
+	The use of these variables helps to recover state in case of leader failures. 
+	</p>
+
+	<p style="font-size: 2.2vmin;">	
+	Each cohort responds to the leader's <mark class="code">pac-elect-me</mark> message with some value for the variables
+	<mark class="code">InitValue, AcceptNum, AcceptVal and Decision</mark>. 
+	If <mark class="code">Decision</mark> variable is set to <mark class="code">True</mark>, this implies previous leader failed 
+	after sending decision to at least one replica and without sending <mark class="code">pac-apply</mark> messages.
+	If none of the replicas have <mark class="code">Decision</mark> variable set to <mark class="code">True</mark> but some replica has
+	<mark class="code">Accept</mark> variable set to <mark class="code">Commit</mark>, this implies leader was able to 
+	reach the <mark class="code">Commit</mark> decision prior to failing. 
+	If none of these variables are set, then it corresponds to a <i>Value Discovery</i> phase and the leader waits for all the cohorts 
+	to reply and selects a value for <mark class="code">AcceptValue</mark> based on the <mark class="code">InitValue</mark> 
+	received from the cohorts (like votes in 2PC).
+	</p>
+
+
 
 
  </div>
