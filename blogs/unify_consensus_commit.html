@@ -91,18 +91,15 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	<br>
 
 	<p style="font-size: 3vmin; color: #00b33c">
-	Preliminaries 
+	Why a unified model?
 	</p>
 	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
 
 	<p style="font-size: 2.2vmin;">
-	PBFT follows the <mark class="beauty">primary-backup model</mark>. 
-	In this model, one replica is designated as the <mark class="beauty">primary</mark> while other replicas act as
-	<mark class="beauty">backups</mark>.
-	It is the responsibility of the primary replica to achieve consensus on the order of execution for each client request. 
-	In specific, given a client request <mark class="code">m</mark>, primary needs to propose the order for this 
-	request <mark class="code">m</mark> and ensure all the backup replicas execute <mark class="code">m</mark> in the same order.
-	If primary fails to reach a consensus, it is replaced by another replica.
+	Consensus and Commit protocols are prevalent in distributed and database applications. 
+	These protocols aim at helping nodes (or servers) reach a common decision even in the presence of failures.
+	Authors claim that a single unified model can help in achieving a intuitive framework, which explains a large set of existing commit and consensus protocols.
+	Such a framework can also highlight the distinction in different types of protocols. 
 	</p>
 
 	<p style="font-size: 2.2vmin;">	
