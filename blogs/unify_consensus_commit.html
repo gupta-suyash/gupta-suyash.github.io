@@ -206,10 +206,43 @@ They try to illustrate the similarity in the underlying state-diagrams and show 
 	When a proposer receives  <mark class="code">pax-accept</mark> messages from a majority of the acceptors, then it sends a 
 	<mark class="code">pax-apply</mark> message to all the acceptors.
 	When an acceptor receives a <mark class="code">pax-apply</mark> message with the chosen value, it commits (or executes) the request.
-	</p>
+	</p><br>
 	
 
+	<div class="container">
+	    <div class="row" style="justify-content: space-between;display: flex;">
+	        <div style="width: 45%">
+	              <div class="img-container">
+	                   <img src="general-2pc-paxos.png" alt="Snow" style="width: 100%" border="2">
+			   <p style="font-size: 2.2vmin;">	
+			   <b>High-level sequence of tasks generalized from Paxos and 2PC</b>
+			   </p>
+	              </div>
+	        </div>
+	    </div>
+	</div>
+	<br>
+
+	<p style="font-size: 3vmin; color: #00b33c">
+	Abstracting Paxos and 2PC
 	</p>
+	<p style="color: #00cc00;  line-height: 0.2; font-weight: 800;">~~~~~~~~~~~~~~~</p>
+
+	<p style="font-size: 2.2vmin;">	
+	Authors note that both Paxos and 2PC share some similarities. 
+	</p>
+	<ul style="font-size: 2.2vmin;">	
+	<li><b>Leader Election</b>: Paxos requires selection of a proposer while 2PC assumes a predesignated leader unless a failure.
+	<li><b>Value Discovery</b>: 2PC requires value discovery, that is, coordinator needs to know the votes of the partitions. 
+		In Paxos, a proposer performs value discovery after an unsuccessful attempt at getting elected. 
+		Basically, the unsuccessful proposer should propose the previously accepted value to ensure safety.
+	<li><b>Fault-Tolerant Agreement</b>: In 2PC, fault-tolerance is achieved by writing decisions to log. 
+		In case of Paxos, the replicated design itself ensures that the value persists at acceptors despite the leader failure.
+	<li><b>Decision</b>: In both the protocols, once the leaders reach a decision, they disseminate that decision to all the other nodes 
+		in the system.
+	</ul>
+
+	
 
 
 
