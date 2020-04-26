@@ -64,33 +64,18 @@
 
  <div class="row" style="padding-left: 5vmin; line-height: 1.6;">
 	<p style="font-size: 2.2vmin;">
-Recent advances in <a href="https://www.researchgate.net/publication/325116198_Blockchain_Transaction_Processing">blockchain</a> technology have brought forth interest in the design of <mark class="beauty">Byzantine-Fault Tolerant</mark> (BFT) protocols.
-At the core of any blockchain application is a BFT <mark class="beauty">consensus</mark> protocol. 
-This protocol states the following: <mark class="beauty">Given a client request and a set of replicas, some of which could be byzantine, the non-faulty replicas would agree on the order for this client request.</mark>
-	</p>
-
-	<p style="font-size: 2.2vmin;">
-	In OSDI'99, <a href="https://dl.acm.org/doi/10.5555/296806.296824">Castro and Liskov</a> presented the 
-	Practical Byzantine-Fault Tolerance (PBFT) that changed the landscape of BFT consensus. 
-	PBFT is often credited as the first BFT protocol that can be employed in practical settings. 
-	Following the design of PBFT, over the past two decades, several new BFT protocols have been presented. 
-	These new protocols have advocated designs that attain higher throughput than PBFT by relaxing some guarantees provided by the PBFT consensus.
-	</p>
-
-	<p style="font-size: 2.2vmin;">
-	Despite the existence of these <i>faster</i> BFT protocols, PBFT is still employed by most of the permissioned blockchain applications.
-	But <i>why is PBFT the preferred choice of blockchain researchers?</i>
-	PBFT presents a clean design that is robust under attacks by malicious replicas. 
-	</p>
-	<br>
+In this post, I would be going over the paper <a href="http://www.vldb.org/pvldb/vol12/p611-maiyya.pdf"><i>Unify Consensus and Atomic Commitment for Effective Cloud Data Management</i> </a>by Maiyya et al. This paper is part of VLDB Endowment and coincidently, I was attending the session in which authors presented this work.
+In this paper, authors attempt at presenting a single framework that encompasses both consensus and commit protocols. 
+They try to illustrate the similarity in the underlying state-diagrams and show how a generalized model can explain both the protocols.
+	</p><bbr>
 
 
 	<p style="font-size: 2.2vmin;">
-<b><i>Objectives of this Post.</i></b> Untangling the mysteries of PBFT protocol and illustrating the beauty in its design.
+<b><i>Objectives of this Post.</i></b> Exploring the proposed single model for consensus and atomic commit protocols.
 	</p>
 
 	<p style="font-size: 2.2vmin;">
-<b><i>Expectations from the Reader.</i></b> Fair understanding of asymmetric-key cryptographic, especially digital signatures. Knowledge of collision resistant hash functions.
+<b><i>Expectations from the Reader.</i></b> Basic understanding of database concurrency-control schemes.
 	</p><br>
 
 
