@@ -36,9 +36,17 @@
 	<div class="periodical"><em>24th International Conference on Extending Database Technology. (<strong>EDBT</strong>). 2021.</em></div>
 
 	<div class="title"><a href="https://ieeexplore.ieee.org/document/9355796">Permissioned Blockchain Through the Looking Glass: Architectural and Implementation Lessons Learned</a></div>
-	<div class="author"><strong>S. Gupta</strong>, S. Rahnama and M. Sadoghi 
+	<div class="author"><strong>S. Gupta</strong>, S. Rahnama and M. Sadoghi</div> 
 	<div class="periodical"><em>40th IEEE International Conference on Distributed Computing Systems (<strong>ICDCS</strong>). 2020.</div>
 
+
+	<div class="title"><a href="http://www.vldb.org/pvldb/vol13/p868-gupta.pdf">ResilientDB: Global Scale Resilient Blockchain Fabric</a></div>
+	<div class="author"><strong>S. Gupta</strong>, S. Rahnama, J. Hellings and M. Sadoghi</div>  
+	<div class="periodical"><em>Very Large Databases (<strong>VLDB</strong>). 2020.</em></div>
+
+	<div class="title"><a href="https://openproceedings.org/2020/conf/edbt/paper_39.pdf">Q-Store: Distributed, Multi-partition Transactions via Queue-oriented Execution and Communication.</a></div>
+	<div class="author">T. Qadah, <strong>S. Gupta</strong> and M. Sadoghi</div>  
+	<div class="periodical"><em>23rd International Conference of Extending Database Technology (<strong>EDBT</strong>), 2020.</em></div>
 
 	
 
