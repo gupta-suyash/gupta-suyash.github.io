@@ -25,10 +25,13 @@ I am also associated with <a href="https://expolab.org/">ExploLab</a>.
 
 ## News
 
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
+- **[Jan. 2023]** Gave a talk on "Chemistry behind Agreement" at CIDR 2023.
+- **[Nov. 2022]** Our paper "Chemistry behind Agreement" is accepted at CIDR 2023.
+- **[Nov. 2022]** Gave a talk on "In Trusted Components we Trust" at ConsensusDay 2022.
+- **[Oct. 2022]** Gave a talk on "Authenticated Concurent Databases" at HPTS 2022.
+- **[Aug. 2022]** Our paper "ServerlessBFT" is accepted at ICDE 2023.
+- **[Jun. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIT Delhi.
+- **[Jun. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIIT Delhi.
 
 {% include_relative _includes/publications.md %}
 
