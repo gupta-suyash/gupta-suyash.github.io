@@ -106,6 +106,18 @@
 
     <h3>Tutorials</h3>
 
+	<div class="title"><a href="http://www.vldb.org/pvldb/vol13/p3441-gupta.pdf">Building High Throughput Permissioned Blockchain Fabrics: Challenges and Opportunities</a></div>
+	<div class="author"><strong>S. Gupta</strong>, J. Hellings, S. Rahnama and M. Sadoghi</div> 
+	<div class="periodical"><em>46th International Conference on Very Large Databases (<strong>VLDB</strong>), 2020.</em></div>
+
+	<div class="title"><a href="https://dl.acm.org/doi/pdf/10.1145/3401025.3404099">Blockchain consensus unraveled: Virtues and Limitations</a></div>
+	<div class="author"><strong>S. Gupta</strong>, J. Hellings, S. Rahnama and M. Sadoghi</div> 
+	<div class="periodical"><em>14th ACM International Conference on Distributed and Event-Based Systems (<strong>DEBS</strong>), 2020.</em></div>
+
+	<div class="title"><a href="https://dl.acm.org/doi/10.1145/3366625.3369437">An In-Depth Look of BFT Consensus in Blockchain: Challenges and Opportunities.</a></div>
+	<div class="author"><strong>S. Gupta</strong>, J. Hellings, S. Rahnama and M. Sadoghi</div> 
+	<div class="periodical"><em>Middleware Tutorials (<strong>MIDDLEWARE</strong>), 2019.</em></div>
+
 
   </div>
 </div>
