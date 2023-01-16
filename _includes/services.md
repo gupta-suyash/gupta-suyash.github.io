@@ -20,5 +20,27 @@
   <li><autocolor>Journal of Systems Research (JSys), 2021, 2022</autocolor></li>
 </ul>
 
+
+<h4 style="margin:0 10px 0;">External Reviewer</h4>
+<ul style="margin:0 0 5px;">  
+   <li><autocolor>EDBT 2018</autocolor></li> 
+   <li><autocolor>Middleware 2018</autocolor></li>
+</ul>
+
+<h4 style="margin:0 10px 0;">Web Chair</h4>
+<ul style="margin:0 0 5px;">
+   <li><autocolor>FAB 2021, 2022</autocolor></li>
+   <li><autocolor>Middleware 2019</autocolor></li>
+</ul>
+
+<h4 style="margin:0 10px 0;">Others</h4>
+<ul style="margin:0 0 5px;">
+   <li><autocolor>pVLDB Reproducibility 2019 – present</li>
+   <li><autocolor>Student Reviewer: EuroSys 2022</li>
+   <li><autocolor>Student Volunteer: VLDB 2019</li>
+</ul>
+
+
+
 <ul style="margin:0 0 20px;">
 </ul>
