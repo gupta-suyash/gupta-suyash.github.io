@@ -18,6 +18,22 @@
 	<div class="author"><strong>S. Gupta</strong>, M. J. Amiri and M. Sadoghi</div>
 	<div class="periodical"><em>Conference on Innovative Data Systems Research (<strong>CIDR</strong>). 2023.</em></div>
 
+
+	<div class="title"><a href="https://arxiv.org/pdf/2201.00982.pdf">Reliable Transactions in Serverless-Edge Architecture</a></div>
+	<div class="author"><strong>S. Gupta</strong>, S. Rahnama, E. Linsenmayer, F. Nawab, and M. Sadoghi</div> 
+	<div class="periodical"><em>39th IEEE International Conference on Data Engineering (<strong>ICDE</strong>). 2023.</em></div>
+
+	<div class="title"><a href="https://openproceedings.org/2022/conf/edbt/paper-73.pdf">RingBFT: Resilient Consensus over Sharded Ring Topology</a></div>
+	<div class="author">S. Rahnama, <strong>S. Gupta</strong>, R. Sogani, D. Krishnan and M. Sadoghi</div> 
+	<div class="periodical"><em>25th International Conference on Extending Database Technology (<strong>EDBT</strong>). 2022.</em></div>
+
+	<div class="title"><a href="https://ieeexplore.ieee.org/document/9458641">RCC: Resilient Concurrent Consensus for High-Throughput Secure Transaction Processing</a></div>,
+	<div class="author"><strong>S. Gupta</strong>, J. Hellings and M. Sadoghi</div> 
+	<div class="periodical"><em>37th IEEE International Conference on Data Engineering (<strong>ICDE</strong>). 2021.</em></div>
+
+	
+
+
   </div>
 </div>
 </li>
