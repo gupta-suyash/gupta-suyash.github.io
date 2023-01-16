@@ -58,8 +58,10 @@ My masters thesis led to several publications and was titled as
 - **[Nov. 2022]** Gave a talk on "In Trusted Components we Trust" at ConsensusDay 2022.
 - **[Oct. 2022]** Gave a talk on "Authenticated Concurent Databases" at HPTS 2022.
 - **[Aug. 2022]** Our paper "ServerlessBFT" is accepted at ICDE 2023.
-- **[Jun. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIT Delhi.
-- **[Jun. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIIT Delhi.
+- **[Jul. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIT Delhi.
+- **[Jul. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIIT Delhi.
+- **[Jun. 2022]** Awarded Ph.D. by University of California, Davis.
+- **[Jun. 2022]** Awarded Best Graduate Researcher Award by CS at UC Davis.
 - **[Mar. 2022]** I will be hosting Sky Seminar Speaker Series at SkyLab.
 
 {% include_relative _includes/publications.md %}
