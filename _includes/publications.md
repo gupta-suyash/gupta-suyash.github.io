@@ -67,6 +67,15 @@
 	<div class="periodical"><em>31st Intenational Conference on Supercomputing (<strong>ICS</strong>), 2017.</em></div> 
 
 
+	<div class="title"><a href="https://link.springer.com/article/10.1007/s10619-019-07267-w">Efficient and non-blocking agreement protocols</a></div>
+	<div class="author"><strong>S. Gupta</strong>, M. Sadoghi</div>  
+	<div class="periodical"><em>Distributed and Parallel Database (<strong>DAPD</strong>). 2019.</em></div>
+
+	<div class="title"><a href="https://www.sciencedirect.com/science/article/pii/S0743731514002032">IMSuite: A Benchmark Suite for Simulating Distributed Algorithms</a></div>
+	<div class="author"><strong>S. Gupta</strong> and V. K. Nandivada</div> 
+	<div class="periodical"><em>Journal of Parallel and Distributed Computing (<strong>JPDC</strong>), Elsevier, 2015.</em></div> 
+
+
   </div>
 </div>
 </li>
