@@ -118,6 +118,14 @@
 	<div class="author"><strong>S. Gupta</strong>, J. Hellings, S. Rahnama and M. Sadoghi</div> 
 	<div class="periodical"><em>Middleware Tutorials (<strong>MIDDLEWARE</strong>), 2019.</em></div>
 
+    <br>
+
+    <h3>Demonstrations</h3>
+	
+	<div class="title"><a href="https://arxiv.org/pdf/1911.00838.pdf">Scalable, Resilient and Configurable Permissioned Blockchain Fabric</a></div>
+	<div class="author">S. Rahnama, <strong>S. Gupta</strong>, T. Qadah, J. Hellings and M. Sadoghi</div> 
+	<div class="periodical"><em>46th International Conference on Very Large Databases (<strong>VLDB</strong>), 2020.</em></div>
+
 
   </div>
 </div>
