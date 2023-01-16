@@ -14,13 +14,14 @@ with a key focus on handling malicious attacks.
 Previously, I was awarded Ph.D. degree at 
 <a href="http://www.cs.ucdavis.edu/">Department of Computer Science</a>, 
 <a href="https://www.ucdavis.edu/">University of California, Davis</a>. 
-I am also the Lead Architect at <a href="https://resilientdb.com/">ResilientDB</a>, and 
+I am also the Lead Architect at <a href="https://resilientdb.com/">ResilientDB</a>, which I founded 
+during my Ph.D at UC Davis.
 I am also associated with <a href="https://expolab.org/">ExploLab</a>.
 
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- **Distributed System:** blockchain, consensus, fault-tolerance
+- **Databases:** agreement protocols, concurrency control, severless-edge
 
 ## News
 
