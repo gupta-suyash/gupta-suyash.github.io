@@ -79,6 +79,12 @@
           <i class="fab fa-twitter"></i>
         </a>
         {% endif %}
+          
+        {% if site.dblp %}
+        <a style="margin: 0 0 0 0" href="{{ site.dblp }}">
+          <iconify-icon icon="simple-icons:dblp"></iconify-icon>
+        </a>
+        {% endif %}
         </div>
         <br>
 
@@ -98,6 +104,7 @@
         
       </footer>
     </div>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
     <script>
