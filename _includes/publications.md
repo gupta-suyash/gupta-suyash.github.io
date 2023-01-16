@@ -37,7 +37,7 @@
 
 	<div class="title"><a href="https://ieeexplore.ieee.org/document/9355796">Permissioned Blockchain Through the Looking Glass: Architectural and Implementation Lessons Learned</a></div>
 	<div class="author"><strong>S. Gupta</strong>, S. Rahnama and M. Sadoghi</div> 
-	<div class="periodical"><em>40th IEEE International Conference on Distributed Computing Systems (<strong>ICDCS</strong>). 2020.</div>
+	<div class="periodical"><em>40th IEEE International Conference on Distributed Computing Systems (<strong>ICDCS</strong>). 2020.</em></div>
 
 
 	<div class="title"><a href="http://www.vldb.org/pvldb/vol13/p868-gupta.pdf">ResilientDB: Global Scale Resilient Blockchain Fabric</a></div>
@@ -48,7 +48,18 @@
 	<div class="author">T. Qadah, <strong>S. Gupta</strong> and M. Sadoghi</div>  
 	<div class="periodical"><em>23rd International Conference of Extending Database Technology (<strong>EDBT</strong>), 2020.</em></div>
 
-	
+
+	<div class="title"><a href="https://drops.dagstuhl.de/opus/volltexte/2019/11351/pdf/LIPIcs-DISC-2019-44.pdf">Brief Announcement: Revisiting Consensus Protocols through Wait-free Parallelization</a></div>
+	<div class="author"><strong>S. Gupta</strong>, J. Hellings and M. Sadoghi</div>  
+	<div class="periodical"><em>33rd International Symposium on Distributed Computing (<strong>DISC</strong>). 2019.</em></div>
+
+	<div class="title"><a href="http://openproceedings.org/2018/conf/edbt/paper-65.pdf">EasyCommit: A Non-blocking Two-phase Commit Protocol</a></div>
+	<div class="author"><strong>S. Gupta</strong> and M. Sadoghi</div> 
+	<div class="periodical"><em>21st International Conference of Extending Database Technology (<strong>EDBT</strong>), 2018.</em></div>
+
+	<div class="title"><a href="https://dl.acm.org/citation.cfm?id=3079102">Optimizing Recursive Task Parallel Programs</a></div>
+	<div class="author"><strong>S. Gupta</strong>, R. Shrivastava, and V. K. Nandivada</div> 
+	<div class="periodical"><em>31st Intenational Conference on Supercomputing (<strong>ICS</strong>), 2017.</em></div> 
 
 
   </div>
