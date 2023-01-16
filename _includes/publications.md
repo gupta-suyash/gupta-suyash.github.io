@@ -94,7 +94,7 @@
 	<div class="author"><strong>S. Gupta</strong></div> 
 	<div class="periodical"><em>PhD Workshop, Very Large Databases (<strong>VLDB</strong>), 2020.</em></div>
 
-	<div class="title"><a href="hpts_abstract.pdf">Efficient Transaction Processing in Byzantine Fault Tolerant Environments</a></div>
+	<div class="title"><a href="assets/files/hpts_abstract.pdf">Efficient Transaction Processing in Byzantine Fault Tolerant Environments</a></div>
 	<div class="author"><strong>S. Gupta</strong>, J. Hellings, T. Qadah, S. Rahnama and M. Sadoghi</div> 
 	<div class="periodical"><em>International Workshop on High Performance Transaction Systems (<strong>HPTS</strong>), 2019.</em></div>
 	
