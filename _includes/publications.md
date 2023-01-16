@@ -15,14 +15,14 @@
 
   <div class="col-sm-9" style="position: relative;width: 100%;padding-right: 15px;padding-left: 20px;">
 
-    <h4>Books</h4>
+    <h3>Books</h3>
 
 	<div class="title"><a href="https://www.morganclaypool.com/doi/10.2200/S01068ED1V01Y202012DTM065">Fault-tolerant Distributed Transactions on Blockchain</a></div>
 	<div class="author"><strong>S. Gupta</strong>, J. Hellings and M. Sadoghi</div>
 	<div class="periodical"><em>Morgan & Claypool, Synthesis Lectures on Data Management, 2021.</em></div>
     <br>
 
-    <h4 style="margin:0 10px 0;">Conferences</h4>
+    <h3>Conferences</h3>
 
 	<div class="title"><a href="https://www.cidrdb.org/cidr2023/papers/p85-gupta.pdf">Chemistry behind Agreement</a></div>
 	<div class="author"><strong>S. Gupta</strong>, M. J. Amiri and M. Sadoghi</div>
@@ -73,7 +73,7 @@
 
     <br>
 
-    <h4 style="margin:0 10px 0;">Journals</h4>
+    <h3>Journals</h3>
 
 	<div class="title"><a href="https://link.springer.com/article/10.1007/s10619-019-07267-w">Efficient and non-blocking agreement protocols</a></div>
 	<div class="author"><strong>S. Gupta</strong>, M. Sadoghi</div>  
@@ -84,11 +84,11 @@
 	<div class="periodical"><em>Journal of Parallel and Distributed Computing (<strong>JPDC</strong>), Elsevier, 2015.</em></div> 
 
 
-    <h4 style="margin:0 10px 0;">Selected Articles</h4>
+    <h3>Selected Articles</h3>
 
 
 
-    <h4 style="margin:0 10px 0;">Tutorials</h4>
+    <h3>Tutorials</h3>
 
 
   </div>
