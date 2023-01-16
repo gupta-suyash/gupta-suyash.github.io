@@ -22,6 +22,8 @@
 	<div class="periodical"><em>Morgan & Claypool, Synthesis Lectures on Data Management, 2021.</em></div>
     <br>
 
+    <h4 style="margin:0 10px 0;">Conferences</h4>
+
 	<div class="title"><a href="https://www.cidrdb.org/cidr2023/papers/p85-gupta.pdf">Chemistry behind Agreement</a></div>
 	<div class="author"><strong>S. Gupta</strong>, M. J. Amiri and M. Sadoghi</div>
 	<div class="periodical"><em>Conference on Innovative Data Systems Research (<strong>CIDR</strong>). 2023.</em></div>
@@ -69,6 +71,9 @@
 	<div class="author"><strong>S. Gupta</strong>, R. Shrivastava, and V. K. Nandivada</div> 
 	<div class="periodical"><em>31st Intenational Conference on Supercomputing (<strong>ICS</strong>), 2017.</em></div> 
 
+    <br>
+
+    <h4 style="margin:0 10px 0;">Journals</h4>
 
 	<div class="title"><a href="https://link.springer.com/article/10.1007/s10619-019-07267-w">Efficient and non-blocking agreement protocols</a></div>
 	<div class="author"><strong>S. Gupta</strong>, M. Sadoghi</div>  
@@ -77,6 +82,13 @@
 	<div class="title"><a href="https://www.sciencedirect.com/science/article/pii/S0743731514002032">IMSuite: A Benchmark Suite for Simulating Distributed Algorithms</a></div>
 	<div class="author"><strong>S. Gupta</strong> and V. K. Nandivada</div> 
 	<div class="periodical"><em>Journal of Parallel and Distributed Computing (<strong>JPDC</strong>), Elsevier, 2015.</em></div> 
+
+
+    <h4 style="margin:0 10px 0;">Selected Articles</h4>
+
+
+
+    <h4 style="margin:0 10px 0;">Tutorials</h4>
 
 
   </div>
