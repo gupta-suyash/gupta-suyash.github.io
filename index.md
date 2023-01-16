@@ -4,7 +4,18 @@ layout: homepage
 
 ## About Me
 
-I am a Ph.D. student at ...
+I am a Postdoctoral Scholar at 
+<a href="https://sky.cs.berkeley.edu/">SkyLab</a>, 
+<a href="https://www.berkeley.edu/">University of California, Berkeley</a>.
+I am working with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a> on designing efficient fault-tolerant systems 
+with a key focus on handling malicious attacks.
+<br><br>
+
+Previously, I was awarded Ph.D. degree at 
+<a href="http://www.cs.ucdavis.edu/">Department of Computer Science</a>, 
+<a href="https://www.ucdavis.edu/">University of California, Davis</a>. 
+I am also the Lead Architect at <a href="https://resilientdb.com/">ResilientDB</a>, and 
+I am also associated with <a href="https://expolab.org/">ExploLab</a>.
 
 ## Research Interests
 
