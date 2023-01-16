@@ -82,11 +82,27 @@
 	<div class="title"><a href="https://www.sciencedirect.com/science/article/pii/S0743731514002032">IMSuite: A Benchmark Suite for Simulating Distributed Algorithms</a></div>
 	<div class="author"><strong>S. Gupta</strong> and V. K. Nandivada</div> 
 	<div class="periodical"><em>Journal of Parallel and Distributed Computing (<strong>JPDC</strong>), Elsevier, 2015.</em></div> 
-
+    <br>
 
     <h3>Selected Articles</h3>
 
+	<div class="title"><a href="http://www.hpts.ws/papers/2022/HPTS22_Suyash.pdf">Authenticated Concurrent Databases</a></div>
+	<div class="author"><strong>S. Gupta</strong></div> 
+	<div class="periodical"><em>International Workshop on High Performance Transaction Systems (<strong>HPTS</strong>), 2022.</em></div>
 
+	<div class="title"><a href="http://ceur-ws.org/Vol-2652/paper13.pdf">Resilient and Scalable Architecture for Permissioned Blockchain Fabrics</a></div>
+	<div class="author"><strong>S. Gupta</strong></div> 
+	<div class="periodical"><em>PhD Workshop, Very Large Databases (<strong>VLDB</strong>), 2020.</em></div>
+
+	<div class="title"><a href="hpts_abstract.pdf">Efficient Transaction Processing in Byzantine Fault Tolerant Environments</a></div>
+	<div class="author"><strong>S. Gupta</strong>, J. Hellings, T. Qadah, S. Rahnama and M. Sadoghi</div> 
+	<div class="periodical"><em>International Workshop on High Performance Transaction Systems (<strong>HPTS</strong>), 2019.</em></div>
+	
+	<div class="title"><a href="https://arxiv.org/abs/2107.11592">Blockchain Transaction Processing</a></div>
+	<div class="author"><strong>S. Gupta</strong>, M. Sadoghi</div> 
+	<div class="periodical"><em>Encyclopedia of Big Data Technologies. Springer, Cham, 2018.</em></div>
+
+    <br>
 
     <h3>Tutorials</h3>
 
