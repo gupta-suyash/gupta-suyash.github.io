@@ -14,6 +14,11 @@
   -->
 
   <div class="col-sm-9" style="position: relative;width: 100%;padding-right: 15px;padding-left: 20px;">
+
+	<div class="title"><a href="https://www.morganclaypool.com/doi/10.2200/S01068ED1V01Y202012DTM065">Fault-tolerant Distributed Transactions on Blockchain</a></div>
+	<div class="author"><strong>S. Gupta</strong>, J. Hellings and M. Sadoghi</div>
+	<div class="periodical"><em>Morgan & Claypool, Synthesis Lectures on Data Management, 2021.</em></div>
+
 	<div class="title"><a href="https://www.cidrdb.org/cidr2023/papers/p85-gupta.pdf">Chemistry behind Agreement</a></div>
 	<div class="author"><strong>S. Gupta</strong>, M. J. Amiri and M. Sadoghi</div>
 	<div class="periodical"><em>Conference on Innovative Data Systems Research (<strong>CIDR</strong>). 2023.</em></div>
