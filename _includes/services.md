@@ -35,9 +35,9 @@
 
 <h4 style="margin:0 10px 0;">Others</h4>
 <ul style="margin:0 0 5px;">
-   <li><autocolor>pVLDB Reproducibility 2019 – present</li>
-   <li><autocolor>Student Reviewer: EuroSys 2022</li>
-   <li><autocolor>Student Volunteer: VLDB 2019</li>
+   <li><autocolor>pVLDB Reproducibility 2019 – present</autocolor></li>
+   <li><autocolor>Student Reviewer: EuroSys 2022</autocolor></li>
+   <li><autocolor>Student Volunteer: VLDB 2019</autocolor></li>
 </ul>
 
 
