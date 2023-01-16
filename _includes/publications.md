@@ -15,7 +15,7 @@
 
   <div class="col-sm-9" style="position: relative;width: 100%;padding-right: 15px;padding-left: 20px;">
 
-    <h4 style="margin:0 10px 0;">Books</h4>
+    <h4>Books</h4>
 
 	<div class="title"><a href="https://www.morganclaypool.com/doi/10.2200/S01068ED1V01Y202012DTM065">Fault-tolerant Distributed Transactions on Blockchain</a></div>
 	<div class="author"><strong>S. Gupta</strong>, J. Hellings and M. Sadoghi</div>
