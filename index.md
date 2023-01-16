@@ -9,14 +9,21 @@ I am a Postdoctoral Scholar at
 <a href="https://www.berkeley.edu/">University of California, Berkeley</a>.
 I am working with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a> on designing efficient fault-tolerant systems 
 with a key focus on handling malicious attacks.
-<br><br>
+<br>
 
 Previously, I was awarded Ph.D. degree at 
 <a href="http://www.cs.ucdavis.edu/">Department of Computer Science</a>, 
 <a href="https://www.ucdavis.edu/">University of California, Davis</a>. 
-I am also the Lead Architect at <a href="https://resilientdb.com/">ResilientDB</a>, which I founded 
+I also serve as the Lead Architect for <a href="https://resilientdb.com/">ResilientDB</a>, which I founded 
 during my Ph.D at UC Davis.
 I am also associated with <a href="https://expolab.org/">ExploLab</a>.
+<br>
+
+I was awarded Best Graduate Researcher Award by UC Davis for my thesis, titled, 
+<i>Resilient and Scalable Architecture for Permissioned Blockchain Fabrics</i>. 
+During my Ph.D. I also authored a book titled, 
+<i>Fault-Tolerant Distributed Transactions on Blockchain</i>, which was published by Morgan & Claypool as part of Synthesis Lectures on Data Management 
+(also available now with Springer).
 
 ## Research Interests
 
@@ -32,6 +39,7 @@ I am also associated with <a href="https://expolab.org/">ExploLab</a>.
 - **[Aug. 2022]** Our paper "ServerlessBFT" is accepted at ICDE 2023.
 - **[Jun. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIT Delhi.
 - **[Jun. 2022]** Gave a talk on "Resilient and Scalable Architectures" at IIIT Delhi.
+- **[Mar. 2022]** I will be hosting Sky Seminar Speaker Series at SkyLab.
 
 {% include_relative _includes/publications.md %}
 
