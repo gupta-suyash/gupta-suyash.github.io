@@ -95,7 +95,35 @@
 
 <ul style="margin:0 0 5px;">
 	<li><b>RCC: Resilient Concurrent Consensus for High-Throughput Secure Transaction Processing</b> at ICDE 2021.  
-	<a href="rcc-icde21.pptx">Slides</a>
+	<a href="assets/files/rcc-icde21.pptx">Slides</a>
+	</li>
+
+	<li><b>Permissioned Blockchain Through the Looking Glass: Architectural and Implementation Lessons Learned</b> for ICDCS 2020.  
+	<a href="assets/files/EvalPaper.pptx">Slides</a>, <a href="https://www.youtube.com/watch?v=QLpnc_eRObA">Video</a>
+	</li>
+
+	<li><b>Building High Throughput Permissioned Blockchain Fabrics: Challenges and Opportunities</b> for VLDB 2020.  
+	<a href="assets/files/VLDB-tutorial.pptx">System</a> <a href="vldb2020_theory.pdf">Theory</a>, <a href="https://www.youtube.com/watch?v=Jj6hVs1SF3E">Video</a>
+	</li>
+
+	<li><b>ResilientDB: Global Scale Resilient Blockchain Fabric</b> for VLDB 2020.  
+	<a href="assets/files/GeoBFT-VLDB20.pptx">Slides</a>, <a href="https://www.youtube.com/watch?v=FL1KXEvR-84">Video</a>
+	</li>
+
+	<li><b>Resilient and Scalable Architecture for Permissioned Blockchain Fabrics</b> for PhD Workshop at VLDB 2020.  
+	<a href="assets/files/phdsymposium.pptx">Slides</a>, <a href="https://www.youtube.com/watch?v=YxfipKvSlm4">Video</a>
+	</li>
+
+	<li><b>Blockchain Consensus Unraveled: Virtues and Limitations</b> at DEBS 2020.  
+	<a href="https://www.youtube.com/watch?v=qU6AjDd11oM">Video</a>
+	</li>
+
+	<li><b>Permissioned Blockchain Through the Looking Glass: Architectural and Implementation Lessons Learned</b> for FAB 2020.  
+	<a href="https://www.youtube.com/watch?v=lvftXtpxEEc">Video</a>
+	</li>
+
+	<li><b>ResilientDB: Global Scale Resilient Blockchain Fabric</b> for FAB 2020.  
+	<a href="https://www.youtube.com/watch?v=33k9aFoDtBw&t=2s">Video</a>
 	</li>
 </ul>
 
