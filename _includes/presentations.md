@@ -89,8 +89,16 @@
 	<a href="assets/files/Consensus-MW19-System.pdf">System</a> <a href="assets/files/Consensus-MW19-Theory.pdf">Theory</a>
 	</li>
 
-
 </ul>
+
+<h4 style="margin:0 10px 0;">Recorded Presentations</h4>
+
+<ul style="margin:0 0 5px;">
+	<li><b>RCC: Resilient Concurrent Consensus for High-Throughput Secure Transaction Processing</b> at ICDE 2021.  
+	<a href="rcc-icde21.pptx">Slides</a>
+	</li>
+</ul>
+
 
 <ul style="margin:0 0 20px;">
 </ul>
