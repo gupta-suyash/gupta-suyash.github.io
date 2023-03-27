@@ -24,10 +24,13 @@
 
     <h3>Conferences</h3>
 
+	<div class="title"><a href="https://www.cidrdb.org/cidr2023/papers/p85-gupta.pdf">Dissecting BFT Consensus: In Trusted Components we Trust!</a></div>
+	<div class="author"><strong>S. Gupta</strong>, S. Rahnama, S. Pandey, N. Crooks, and M. Sadoghi</div>
+	<div class="periodical">18th European Conference on Computer Systems<em> (<strong>EuroSys</strong>). 2023.</em></div>
+
 	<div class="title"><a href="https://www.cidrdb.org/cidr2023/papers/p85-gupta.pdf">Chemistry behind Agreement</a></div>
 	<div class="author"><strong>S. Gupta</strong>, M. J. Amiri and M. Sadoghi</div>
-	<div class="periodical"><em>Conference on Innovative Data Systems Research (<strong>CIDR</strong>). 2023.</em></div>
-
+	<div class="periodical"><em>13th Conference on Innovative Data Systems Research (<strong>CIDR</strong>). 2023.</em></div>
 
 	<div class="title"><a href="https://arxiv.org/pdf/2201.00982.pdf">Reliable Transactions in Serverless-Edge Architecture</a></div>
 	<div class="author"><strong>S. Gupta</strong>, S. Rahnama, E. Linsenmayer, F. Nawab, and M. Sadoghi</div> 
