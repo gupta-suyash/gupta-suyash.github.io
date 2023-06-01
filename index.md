@@ -53,6 +53,7 @@ My masters thesis led to several publications and was titled as
 
 ## News
 
+- **[Mar. 2023]** Our paper "Dissecting BFT Consensus: In Trusted Components we Trust" received Best Paper Award at EuroSys 2023.
 - **[Mar. 2023]** Our paper "Dissecting BFT Consensus: In Trusted Components we Trust" accepted at EuroSys 2023.
 - **[Jan. 2023]** Gave a talk on "Chemistry behind Agreement" at CIDR 2023.
 - **[Nov. 2022]** Our paper "Chemistry behind Agreement" is accepted at CIDR 2023.
