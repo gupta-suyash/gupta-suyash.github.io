@@ -1,5 +1,10 @@
 ## Services
 
+<h4 style="margin:0 10px 0;">Assitant Editor</h4>
+<ul style="margin:0 0 5px;">
+   <li><autocolor>Journal of Systems Research (JSys), 2023</autocolor></li>
+</ul>
+
 <h4 style="margin:0 10px 0;">Conference Reviewer</h4>
 
 <ul style="margin:0 0 5px;">
@@ -24,12 +29,20 @@
   <li><autocolor>Journal of Systems Research (JSys), 2021, 2022</autocolor></li>
 </ul>
 
-
 <h4 style="margin:0 10px 0;">External Reviewer</h4>
 <ul style="margin:0 0 5px;">  
    <li><autocolor>EDBT 2018</autocolor></li> 
    <li><autocolor>Middleware 2018</autocolor></li>
 </ul>
+
+
+<h4 style="margin:0 10px 0;">Artifact Evaluation Committee</h4>
+<ul style="margin:0 0 5px;">  
+   <li><autocolor>SOSP 2023</autocolor></li>
+   <li><autocolor>OSDI 2023</autocolor></li> 
+   <li><autocolor>ATC 2023</autocolor></li>
+</ul>
+
 
 <h4 style="margin:0 10px 0;">Web Chair</h4>
 <ul style="margin:0 0 5px;">
