@@ -53,6 +53,7 @@ My masters thesis led to several publications and was titled as
 
 ## News
 
+- **[Jul. 2023]** Teaching 3-month long "Introduction to Database" course in collaboration with Mentors without Borders.
 - **[Mar. 2023]** Our paper "Dissecting BFT Consensus: In Trusted Components we Trust" received Best Paper Award at EuroSys 2023.
 - **[Mar. 2023]** Our paper "Dissecting BFT Consensus: In Trusted Components we Trust" accepted at EuroSys 2023.
 - **[Jan. 2023]** Gave a talk on "Chemistry behind Agreement" at CIDR 2023.
