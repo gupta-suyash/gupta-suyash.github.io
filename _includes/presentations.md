@@ -1,8 +1,29 @@
-## Presentations
+## Talks
 
-<h4 style="margin:0 10px 0;">Live Presentations</h4>
+<h4 style="margin:0 10px 0;">Live Talks</h4>
 
 <ul style="margin:0 0 5px;">
+	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, UC Irvine, 10/13/2023.  
+	</li>
+
+	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, UWashington, 10/04/2023.  
+	</li>
+
+	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, SkyRetreat 2023, 06/01/2023.  
+	</li>
+
+	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, SkyRetreat 2023, 06/01/2023.  
+	</li>
+
+	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, EuroSys 2023, 05/11/2023.  
+	</li>
+
+	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, SysTEX'23, EuroSys 2023, 05/08/2023.  
+	</li>
+
+	<li><b>Reliable Transactions in Serverless-Edge Architecture</b>, ICDE 2023, 04/06/2023.  
+	</li>
+
 	<li><b>Chemistry Behind Agreement</b>, CIDR 2023, 01/11/2023.  
 	<a href="assets/files/chemistry-cidr23.pptx">Slides</a>
 	</li>
@@ -91,7 +112,7 @@
 
 </ul>
 
-<h4 style="margin:0 10px 0;">Recorded Presentations</h4>
+<h4 style="margin:0 10px 0;">Recorded Talks</h4>
 
 <ul style="margin:0 0 5px;">
 	<li><b>RCC: Resilient Concurrent Consensus for High-Throughput Secure Transaction Processing</b> at ICDE 2021.  
