@@ -7,8 +7,12 @@ layout: homepage
 I am a Postdoctoral Scholar at 
 <a href="https://sky.cs.berkeley.edu/">SkyLab</a>, 
 <a href="https://www.berkeley.edu/">University of California, Berkeley</a>.
-I am working with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a> on designing efficient fault-tolerant systems 
-with a key focus on handling malicious attacks.
+where I work with with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a>. 
+<br>
+
+My research focusses on designing efficient decentralized systems that can handle arbitrary failures 
+and can scale across the WAN.
+
 <br>
 
 Previously, I was awarded Ph.D. degree at 
