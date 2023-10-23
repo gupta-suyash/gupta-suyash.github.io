@@ -12,9 +12,6 @@
 	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, SkyRetreat 2023, 06/01/2023.  
 	</li>
 
-	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, SkyRetreat 2023, 06/01/2023.  
-	</li>
-
 	<li><b>Dissecting BFT Consensus: In Trusted Components we Trust</b>, EuroSys 2023, 05/11/2023.  
 	</li>
 
