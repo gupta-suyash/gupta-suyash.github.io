@@ -12,7 +12,6 @@ where I work with with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks<
 
 My research focusses on designing efficient decentralized systems that can handle arbitrary failures 
 and can scale across the WAN.
-
 <br>
 
 Previously, I was awarded Ph.D. degree at 
