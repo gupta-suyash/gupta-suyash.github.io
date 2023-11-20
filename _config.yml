@@ -21,9 +21,9 @@ dblp: https://dblp.org/pid/136/5662.html
 
 # Statements 
 # If you don't need one of them, you may delete the corresponding line.
-research_statement: 
-teaching_statement:
-diversity_statement:
+research_statement: assets/files/research_statement_suyash.pdf
+teaching_statement: assets/files/teaching_statement_suyash.pdf
+diversity_statement: assets/files/diversity_statement_suyash.pdf
 
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
