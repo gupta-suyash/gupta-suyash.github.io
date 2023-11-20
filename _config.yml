@@ -19,6 +19,12 @@ github_link: https://github.com/gupta-suyash
 twitter: https://twitter.com/suyash_sg
 dblp: https://dblp.org/pid/136/5662.html
 
+# Statements 
+# If you don't need one of them, you may delete the corresponding line.
+research_statement: 
+teaching_statement:
+diversity_statement:
+
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
 avatar: ./assets/img/suyash_dp.png
