@@ -24,7 +24,7 @@
 
     <h3>Conferences</h3>
 
-	<div class="title"><a href="https://www.cidrdb.org/cidr2023/papers/p85-gupta.pdf">Dissecting BFT Consensus: In Trusted Components we Trust!</a></div>
+	<div class="title"><a href="https://dl.acm.org/doi/pdf/10.1145/3552326.3587455">Dissecting BFT Consensus: In Trusted Components we Trust!</a></div>
 	<div class="author"><strong>S. Gupta</strong>, S. Rahnama, S. Pandey, N. Crooks, and M. Sadoghi</div>
 	<div class="periodical">18th European Conference on Computer Systems<em> (<strong>EuroSys</strong>). 2023.</em></div>
 
@@ -106,6 +106,14 @@
 	<div class="periodical"><em>Encyclopedia of Big Data Technologies. Springer, Cham, 2018.</em></div>
 
     <br>
+
+
+    <h3>Preprints</h3>
+
+	<div class="title"><a href="https://arxiv.org/abs/2312.11029">Picsou: Enabling Efficient Cross-Consensus Communication</a></div>
+	<div class="author">R. Frank, M. Murray, <strong>S. Gupta</strong>, Q. Xu, N. Crooks, and M. Kapritsos</div> 
+	<div class="periodical"><em>under review, 2023.</em></div>
+
 
     <h3>Tutorials</h3>
 
