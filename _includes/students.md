@@ -4,7 +4,6 @@
 <h4 style="margin:0 10px 0;">Current</h4>
 
 <ul style="margin:0 0 5px;">
-  <li><autocolor> Ethan Xu, B.Sc, UC Berkeley - June 2023 </autocolor></li>
   <li><autocolor> Shubham Mishra, PhD, UC Berkeley - May 2023 </autocolor></li>
   <li><autocolor> Chun Deng, B.Sc, UC Berkeley  - Jan 2023</autocolor></li>
   <li><autocolor> Dakai Kang, PhD, UC Davis - Jan 2023</autocolor></li>
@@ -16,6 +15,7 @@
 <h4 style="margin:0 10px 0;">Past</h4>
 
 <ul style="margin:0 0 5px;">
+  <li><autocolor> Qibao Xu, B.Sc, UC Berkeley (June 2023 - Dec 2023)</autocolor></li>
   <li><autocolor> Michael Paper, M. Sc, EPFL (Feb 2023 - Aug 2023) - Now at Imperial College London</autocolor></li>
   <li><autocolor> Shivang Singh, B.Sc, UC Berkeley (Jan 2022 - July 2022) - Now at Bloomberg</autocolor></li>
   <li><autocolor> Shreya Shekhar, B.Sc, UC Berkeley (Jan 2022 - July 2022)</autocolor></li>
