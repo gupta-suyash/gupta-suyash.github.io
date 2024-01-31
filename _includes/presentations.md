@@ -15,8 +15,8 @@
 	<a href="assets/files/trusted-eurosys23.pptx">Slides</a>
 	</li>
 	<li><b>Reliable Transactions in Serverless-Edge Architecture</b>, ICDE 2023, 04/06/2023.  
+	<a href="assets/files/serverless-icde23.pptx">Slides</a>
 	</li>
-
 	<li><b>Chemistry Behind Agreement</b>, CIDR 2023, 01/11/2023.  
 	<a href="assets/files/chemistry-cidr23.pptx">Slides</a>
 	</li>
