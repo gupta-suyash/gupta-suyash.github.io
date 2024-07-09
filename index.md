@@ -8,6 +8,8 @@ I am a Postdoctoral Scholar at
 <a href="https://sky.cs.berkeley.edu/">SkyLab</a>, 
 <a href="https://www.berkeley.edu/">University of California, Berkeley</a>.
 where I work with with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a>. 
+I will be joining <a href="https://scds.uoregon.edu/cs">Department of Computer Science</a>, 
+<a href="https://www.uoregon.edu/">University of Oregon</a> as a Tenure-Track Assistant Professor from Fall 2024.
 <br>
 
 My research focusses on designing efficient decentralized systems that can handle arbitrary failures 
