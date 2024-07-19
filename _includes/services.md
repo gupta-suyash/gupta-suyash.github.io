@@ -2,19 +2,22 @@
 
 <h4 style="margin:0 10px 0;">Assitant Editor</h4>
 <ul style="margin:0 0 5px;">
-   <li><autocolor>Journal of Systems Research (JSys), 2023</autocolor></li>
+   <li><autocolor>Journal of Systems Research (JSys), Aug 2023 -- </autocolor></li>
 </ul>
 
 <h4 style="margin:0 10px 0;">Conference Reviewer</h4>
 
 <ul style="margin:0 0 5px;">
   <li><autocolor>SIGMOD 2023, 2025</autocolor></li>
+  <li><autocolor>ICDE 2022, 2023, 2025</autocolor></li>
+  <li><autocolor>USENIX ATC 2024</autocolor></li>
   <li><autocolor>IJCAI 2024</autocolor></li>
-  <li><autocolor>ICDE 2022, 2023</autocolor></li>
-  <li><autocolor>ACM DEBS 2023</autocolor></li>
+  <li><autocolor>EuroSys Posters 2024</autocolor></li>
+  <li><autocolor>VLDB Tutorials 2023, 2024</autocolor></li>
   <li><autocolor>IEEE DAPPS 2022, 2023, 2024</autocolor></li>
+  <li><autocolor>FAB 2022, 2024</autocolor></li>
+  <li><autocolor>ACM DEBS 2023</autocolor></li>
   <li><autocolor>IEEE BigData 2021, 2022, 2023</autocolor></li>
-  <li><autocolor>FAB 2022</autocolor></li>
   <li><autocolor>ICDCS 2021</autocolor></li>
   <li><autocolor>Sigmod Record 2019</autocolor></li>
 </ul>
@@ -54,8 +57,8 @@
 
 <h4 style="margin:0 10px 0;">Others</h4>
 <ul style="margin:0 0 5px;">
-   <li><autocolor>pVLDB Reproducibility 2019 – present</autocolor></li>
    <li><autocolor>Student Reviewer: EuroSys 2022</autocolor></li>
+   <li><autocolor>pVLDB Reproducibility 2019 – 2021</autocolor></li>
    <li><autocolor>Student Volunteer: VLDB 2019</autocolor></li>
 </ul>
 
