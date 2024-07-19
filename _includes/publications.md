@@ -24,7 +24,7 @@
 
     <h3>Conferences</h3>
 
-	<div class="title"><a href="https://dl.acm.org/doi/pdf/10.1145/3552326.3587455">Transfer Learning via Latent Dependency Factor for Estimating PM 2.5</a></div>
+	<div class="title"><a href="https://arxiv.org/pdf/2404.07308">Transfer Learning via Latent Dependency Factor for Estimating PM 2.5</a></div>
 	<div class="author">S. Gupta, Y. Park, J. Bi, <strong>S. Gupta</strong>, A. Zufle, A. Wildani, Y. Liu</div>
 	<div class="periodical">38th European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Database<em> (<strong>ECML PKDD</strong>). 2024.</em></div>
 
