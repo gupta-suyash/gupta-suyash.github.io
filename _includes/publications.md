@@ -24,6 +24,10 @@
 
     <h3>Conferences</h3>
 
+	<div class="title"><a href="https://dl.acm.org/doi/pdf/10.1145/3552326.3587455">Transfer Learning via Latent Dependency Factor for Estimating PM 2.5</a></div>
+	<div class="author">S. Gupta, Y. Park, J. Bi, <strong>S. Gupta</strong>, A. Zufle, A. Wildani, Y. Liu</div>
+	<div class="periodical">38th European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Database<em> (<strong>ECML PKDD</strong>). 2024.</em></div>
+
 	<div class="title"><a href="https://dl.acm.org/doi/pdf/10.1145/3552326.3587455">Dissecting BFT Consensus: In Trusted Components we Trust!</a></div>
 	<div class="author"><strong>S. Gupta</strong>, S. Rahnama, S. Pandey, N. Crooks, and M. Sadoghi</div>
 	<div class="periodical">18th European Conference on Computer Systems<em> (<strong>EuroSys</strong>). 2023.</em></div>
