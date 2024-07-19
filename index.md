@@ -9,7 +9,8 @@ I am a Postdoctoral Scholar at
 <a href="https://www.berkeley.edu/">University of California, Berkeley</a>.
 where I work with with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a>. 
 I will be joining <a href="https://scds.uoregon.edu/cs">Department of Computer Science</a>, 
-<a href="https://www.uoregon.edu/">University of Oregon</a> as a Tenure-Track Assistant Professor from Fall 2024.
+<a href="https://www.uoregon.edu/">University of Oregon</a> as a Tenure-Track Assistant Professor from Fall 2024 and 
+directing <a href="https://github.com/distopialabs">Distopia Laboratory</a>.
 <br>
 
 My research focusses on designing efficient decentralized systems that can handle arbitrary failures 
@@ -58,6 +59,8 @@ My masters thesis led to several publications and was titled as
 
 ## News
 
+- **[Jun. 2024]** Our paper "Transfer Learning via Latent Dependency Factor for Estimating PM 2.5" accepted at ECML PKDD 2024.
+- **[Oct. 2023]** Two posters accepted and presented at SOSP 2023.
 - **[Jul. 2023]** Teaching 3-month long "Introduction to Database" course in collaboration with Mentors without Borders.
 - **[Mar. 2023]** Our paper "Dissecting BFT Consensus: In Trusted Components we Trust" received Best Paper Award at EuroSys 2023.
 - **[Mar. 2023]** Our paper "Dissecting BFT Consensus: In Trusted Components we Trust" accepted at EuroSys 2023.
