@@ -4,20 +4,22 @@ layout: homepage
 
 ## About Me
 
-I am a Postdoctoral Scholar at 
-<a href="https://sky.cs.berkeley.edu/">SkyLab</a>, 
-<a href="https://www.berkeley.edu/">University of California, Berkeley</a>.
-where I work with with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a>. 
-I will be joining <a href="https://scds.uoregon.edu/cs">Department of Computer Science</a>, 
-<a href="https://www.uoregon.edu/">University of Oregon</a> as a Tenure-Track Assistant Professor from Fall 2024 and 
-directing <a href="https://github.com/distopialabs">Distopia Laboratory</a>.
-<br>
-
-My research focusses on designing efficient decentralized systems that can handle arbitrary failures 
+I am a Tenure-Track Assistant Professor 
+at the <a href="https://scds.uoregon.edu/cs">Department of Computer Science</a>, <a href="https://www.uoregon.edu/">University of Oregon</a>.
+At UO, I lead <a href="https://github.com/distopialabs">Distopia Laboratory</a> and
+co-lead <a href="https://onrg.gitlab.io/">Oregon Networking Research Group (ONRG)</a>.
+My research focusses on designing efficient distributed, decentralized and blockchain systems/databases that can handle arbitrary failures 
 and can scale across the WAN.
 <br>
 
-Previously, I was awarded Ph.D. degree at 
+Prior to joining UO, I was a Postdoctoral Scholar at
+<a href="https://sky.cs.berkeley.edu/">SkyLab</a>, 
+<a href="https://www.berkeley.edu/">University of California, Berkeley</a>.
+where I worked with <a href="https://nacrooks.github.io/">Dr. Natacha Crooks</a>. 
+<br>
+
+
+Even before, I was awarded Ph.D. degree at 
 <a href="http://www.cs.ucdavis.edu/">Department of Computer Science</a>, 
 <a href="https://www.ucdavis.edu/">University of California, Davis</a>. 
 I also serve as the Lead Architect for <a href="https://resilientdb.com/">ResilientDB</a>, which I founded 
