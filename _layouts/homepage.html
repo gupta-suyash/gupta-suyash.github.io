@@ -122,25 +122,32 @@
         {% if site.pubs %}
         <a style="margin: 0 10px 0 0" href="{{ site.pubs }}">
 <!--           <i class="fa-solid fa-computer"></i> -->
-          <span>Publications</span>
+          <span>Papers</span>
         </a>
         <span> | </span>
         {% endif %}
 <!--         <br> -->
+
+	{% if site.studnts %}
+        <a style="margin: 0 10px 0 0" href="{{ site.studnts }}">
+<!--           <i class="fa-solid fa-person"></i> -->
+          <span>Students</span>
+        </a>
+        {% endif %}
+	<span> | </span>
           
         {% if site.serves %}
         <a style="margin: 0 10px 0 0" href="{{ site.serves }}">
 <!--           <i class="fa-solid fa-chalkboard-user"></i> -->
           <span>Services</span>
         </a>
-        <span> | </span>
-        {% endif %}
-<!--         <br> -->
-          
-        {% if site.studnts %}
-        <a style="margin: 0 10px 0 0" href="{{ site.studnts }}">
+	{% endif %}
+	<span> | </span>
+        
+	{% if site.talks %}
+        <a style="margin: 0 10px 0 0" href="{{ site.talks }}">
 <!--           <i class="fa-solid fa-person"></i> -->
-          <span>Students</span>
+          <span>Presentations</span>
         </a>
         {% endif %}
         <br>
