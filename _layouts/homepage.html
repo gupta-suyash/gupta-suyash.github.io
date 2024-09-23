@@ -115,9 +115,37 @@
           <span>Diversity</span>
         </a>
         {% endif %}
+      	</div>
+
+	<br>
+        <div class="my-links"> 
+        {% if site.pubs %}
+        <a style="margin: 0 10px 0 0" href="{{ site.pubs }}">
+<!--           <i class="fa-solid fa-computer"></i> -->
+          <span>Publications</span>
+        </a>
+        <span> | </span>
+        {% endif %}
+<!--         <br> -->
+          
+        {% if site.serves %}
+        <a style="margin: 0 10px 0 0" href="{{ site.serves }}">
+<!--           <i class="fa-solid fa-chalkboard-user"></i> -->
+          <span>Services</span>
+        </a>
+        <span> | </span>
+        {% endif %}
+<!--         <br> -->
+          
+        {% if site.studnts %}
+        <a style="margin: 0 10px 0 0" href="{{ site.studnts }}">
+<!--           <i class="fa-solid fa-person"></i> -->
+          <span>Students</span>
+        </a>
+        {% endif %}
         <br>
           
-      </div>
+      	</div>
  
       </header>
       <section>
