@@ -28,7 +28,7 @@ diversity_statement: assets/files/diversity_statement_suyash.pdf
 # In-site Links
 pubs: publications.md
 studnts: students.md
-serves: _includes/services.md
+serves: services.md
 talks: presentations.md
 
 
