@@ -72,7 +72,7 @@ My masters thesis led to several publications and was titled as
 - **[Jun. 2022]** Awarded Best Graduate Researcher Award by CS at UC Davis.
 - **[Mar. 2022]** I will be hosting Sky Seminar Speaker Series at SkyLab.
 
-{% include_relative _includes/publications.md %}
+{% include_relative publications.md %}
 
 {% include_relative _includes/services.md %}
 
