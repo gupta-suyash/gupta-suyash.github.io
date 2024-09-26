@@ -26,6 +26,7 @@ teaching_statement: assets/files/teaching_statement_suyash.pdf
 diversity_statement: assets/files/diversity_statement_suyash.pdf
 
 # In-site Links
+pubs: publications.md
 
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
