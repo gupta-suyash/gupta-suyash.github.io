@@ -2444,17 +2444,45 @@ input, select, textarea {
 
 	}
 
+
 	@media (max-width: 768px) {
-  		#header {
-  		  position: fixed;
-  		  top: 0;
-  		  left: 0;
-  		  width: 100%;
-  		  background: #000 !important;
-  		  z-index: 1000;
-  		}
-  		body {
-  		  padding-top: 60px; /* Adjust this value if your header is taller/shorter */
-  		}
+		#menu-toggle {
+		  display: block;
+		  background: none;
+		  border: none;
+		  color: #fff;
+		  font-size: 2em;
+		  position: absolute;
+		  top: 1em;
+		  right: 1em;
+		  z-index: 2000;
+		}
+		#nav {
+		  display: none;
+		  background: #000;
+		  position: absolute;
+		  top: 60px; /* Adjust if your button is higher/lower */
+		  left: 0;
+		  width: 100%;
+		  padding: 1em 0;
+		}
+		#nav.open {
+		  display: block;
+		}
+		#nav ul {
+		  list-style: none;
+		  margin: 0;
+		  padding: 0;
+		}
+		#nav ul li {
+		  text-align: left;
+		  padding: 1em;
+		}
+		#nav ul li a {
+		  color: #fff;
+		  text-decoration: none;
+		  display: block;
+		}
 	}
+
 
