@@ -2446,50 +2446,50 @@ input, select, textarea {
 
 
 	@media (max-width: 768px) {
-  		#menu-toggle {
-  		  display: block !important;
-  		  background: none;
-  		  border: none;
-  		  color: #fff;
-  		  font-size: 2em;
-  		  position: fixed;
-  		  top: 1em;
-  		  right: 1em;
-  		  z-index: 2001;
-  		}
-  		#nav {
-  		  display: none !important;
-  		  background: #000;
-  		  position: fixed;
-  		  top: 60px;
-  		  left: 0;
-  		  width: 100%;
-  		  padding: 1em 0;
-  		  z-index: 2000;
-  		  flex-direction: column !important;
-  		  align-items: flex-start !important;
-  		}
-  		#nav.open {
-  		  display: flex !important;
-  		}
-  		#nav ul.container {
-  		  list-style: none;
-  		  margin: 0;
-  		  padding: 0;
-  		  width: 100%;
-  		}
-  		#nav ul.container li {
-  		  text-align: left;
-  		  padding: 1em;
-  		  width: 100%;
-  		}
-  		#nav ul.container li a {
-  		  color: #fff;
-  		  text-decoration: none;
-  		  display: block;
-  		  width: 100%;
-  		}
+	  #menu-toggle {
+	    display: block !important;
+	    position: fixed;
+	    top: 1em;
+	    right: 1em;
+	    z-index: 2001;
+	    background: none;
+	    border: none;
+	    color: #fff;
+	    font-size: 2em;
+	  }
+	  #nav {
+	    display: none !important;
+	    background: #111;
+	    width: 100%;
+	    position: fixed;
+	    top: 3.5em;
+	    left: 0;
+	    z-index: 2000;
+	  }
+	  #nav.open {
+	    display: block !important;
+	  }
+	  #nav ul.container {
+	    flex-direction: column;
+	    align-items: flex-start;
+	    width: 100%;
+	    margin: 0;
+	    padding: 0;
+	  }
+	  #nav ul.container li {
+	    width: 100%;
+	    text-align: left;
+	    padding: 1em 1.5em;
+	    border-bottom: 1px solid #222;
+	  }
+	  #nav ul.container li a {
+	    color: #fff;
+	    display: block;
+	    width: 100%;
+	    text-decoration: none;
+	  }
 	}
+
 
 
 
