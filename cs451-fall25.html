@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Suyash Gupta</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+
+<!-- Nav -->
+<nav id="nav">
+	<ul class="container">
+		<li><a href="#home">Home</a></li>
+		<li><a href="#syllabus">Syllabus</a></li>
+		<li><a href="#schedule">Schedule</a></li>
+		<li><a href="#assignments">Assignments</a></li>
+		<li><a href="#db-links">Cool Links</a></li>
+	</ul>
+</nav>
+
+
+<article id="home" class="wrapper style3">
+<div class="container">
+	<header>
+		<h1>
+		CS 451/551 <br><br>
+		Database Processing <br><br>
+		Fall 2025
+		</h1>
+	</header>
+
+	<h3 align="justify">Course Information</h3>
+
+	<p align="justify">
+	This is an upper-level course on the design and implementation of database management systems. In this course, we will be covering the following topics: relational data models, Structured Query Language (SQL), storage architecture (heaps, log-structured), indexing, hashing, query processing, transaction processing (ACID, concurrency control), recovery (logging, checkpoints), and parallel and distributed architectures. The course aims to help students gain an understanding of the database systems used in real-world applications.
+	<br><br>
+
+	<strong>
+	Time: Tues/Thur 8:30am - 9:50am PST <br>
+	Location: <a href="https://news.uoregon.edu/tykeson">Tykeson 204</a>
+	</strong>
+	</p>
+
+
+	<h3 align="justify">Instructor</h3>
+
+	<table>
+		<tr align="justify">
+			<th><strong> Name </strong></th>
+			<th><strong> Office Hours </strong></th>
+			<th><strong> Location </strong></th>
+		</tr>
+		<tr align="justify">
+			<th><a href="https://gupta-suyash.github.io/">Suyash Gupta </a></th>
+			<th>Tuesday 10 - 11am</th>
+			<th>Deschutes 334</th>
+		</tr>
+	</table>
+
+	<h3 align="justify">Teaching Assistant</h3>
+
+	<table>
+		<tr align="justify">
+			<th><strong> Name </strong></th>
+			<th><strong> Office Hours </strong></th>
+			<th><strong> Location </strong></th>
+		</tr>
+		<tr align="justify">
+			<th><a href="https://www.linkedin.com/in/ethan-childs-45154b220">Ethan Childs</a></th>
+			<th>Mon/Wed 12 - 1pm</th>
+			<th>Deschutes 227</th>
+		</tr>
+	</table>
+
+</div>
+</article>
+
+
+
+<!-- Syllabus -->
+<article id="syllabus" class="wrapper style3">
+<div class="container">
+	<header>
+		<h2>Syllabus</h2>
+	</header>
+
+	<h3 align="justify">Objectives</h3>
+	
+	<p align="justify">
+	This is an upper-level course on the internals of database management systems. This course places a heavy emphasis on programming projects. There are also readings assigned for each class and two exams. Upon successful completion of this course, a student should be able to:
+	</p>
+	<ul align="justify">
+		<li>Use relational algebra to express database tables and queries.</li>
+		<li>Use SQL to interact with database management systems.</li>
+		<li>Implement a disk-oriented database storage manager with table heaps and indexes.</li>
+		<li>Design a query processor.</li>
+		<li>Understand distributed databases and implement concurrency control algorithms.</li>
+		<li>Understand and constructively criticize database system architectures.</li>
+	</ul>
+
+
+	<h3 align="justify">TextBooks</h3>
+	
+	<ul align="justify">
+		<li>DATABASE SYSTEM CONCEPTS (7/e by Silberschatz), ISBN: 9781260515046 - Required </li>
+		<li>DATABASE MANAGEMENT SYSTEMS (3/e by Ramakrishnan), ISBN: 9780072465631 - Optional</li>
+	</ul>
+
+
+
+	<h3 align="justify">Grading Scheme</h3>
+	
+	<p align="justify">
+	The final grade for the course will be based approximately on the following weights:
+	</p>
+	<ul align="justify">
+		<li>30% - Assignments</li>
+		<li>10% - Presentation</li>
+		<li>10% - Quiz 1</li>
+		<li>10% - Quiz 2</li>
+		<li>20% - Final Exam</li>
+	</ul>
+
+	<ul align="justify">
+		<li>Undergraduate Students</li>
+		<ul align="justify">
+			<li>20% - Class Participation + Attendance</li>
+		</ul>
+		<li>Graduate Students</li>
+		<ul align="justify">
+			<li>10% - Class Participation + Attendance</li>
+			<li>10% - Term Paper</li>
+		</ul>
+	</ul>
+
+
+	<h3 align="justify">Assignments</h3>
+	
+	<p align="justify">
+	Students will work in groups (3 or 4) to complete the assignments during the course. 
+	Each assignment is cumulative. That is, you need to successfully complete each project in order to complete the next one. 
+	<br><br>
+	Each assignment carries <strong>10%</strong> of the grade.
+	<br><br>
+	We <strong>will not</strong> teach students how to write/debug Python programs during the semester. It is a prerequisite for this course. 
+	</p>
+
+
+	<h3 align="justify">Exams</h3>
+	
+	<p align="justify">
+	There will be three exams during the course. These exams will cover the mandatory readings and topics discussed in class. The first two will be an <i>in-class</i> quizzes. The final will be a final exam at during the <i>University's final examination period</i> at the end of the quarter.
+	</p>
+
+	<h3 align="justify">Late Policy</h3>
+	
+	<p align="justify">
+	Each person has an automatic extension of <strong>three calendar days</strong> for assignments only. 
+	For instance, you can hand in one assignment three days late, or each of three assignments one day late.
+	<br><br>
+	Late days are rounded up to the nearest integer. For example, a submission that is 3 hours late will count as one day late.
+	When you hand in a late assignment, you must identify (1) how late this assignment is and (2) how many total extension days you have left.
+	If you hand in a homework late and have used up your extension days for assignments, <strong>the grade will be zero</strong>.
+	</p>
+
+
+	<h3 align="justify">Missed Days</h3>
+	
+	<p align="justify">
+	Each student is allowed to miss <strong>two classes</strong> during the quarter without facing any loss in the class participation grade.
+	</p>
+	
+
+	<h3 align="justify">Plaigarism</h3>
+	
+	<p align="justify">
+	We expect each student group to work on their projects in isolation, while each student will complete the exam by themselves. You cannot copy any part of a solution that was written by another group/students, or develop your project or homework solutions together with other groups/students, or copy solutions from any unauthorized source such as the Internet. You may not look at another group/student's solution without permission from the course staff, even if you have completed your own, nor may you knowingly give your solution to another group/student or leave your solution where another group/student can see it.
+	<br>
+	Here are some examples of behavior that are inappropriate:
+	<ul align="justify">
+		<li>Copying (or retyping) homework, project, or exam solutions from another group/strudent or source, either in draft or final form, 
+		even if permissions are incorrectly set to allow it. 
+		This behavior is still clearly inappropriate even if you make modifications from the original source.</li>
+		<li>Searching for or viewing a current or past group/student's homework, project, or exam solution.</li>
+		<li>Allowing someone else to view or copy your code, written assignment, quiz, or exam, either in draft or final form.</li>
+		<li>Getting help that you do not fully understand or from someone whom you do not acknowledge on your solution.</li>
+		<li>Coaching others step-by-step without them understanding your help.</li>
+		<li>Writing, using, or submitting a program that attempts to alter or erase grading information or otherwise compromise security of course resources.</li>
+		<li>Lying to course staff.</li>
+		<li>Making your work publicly available in a way that other students (current or future) can access your solutions, 
+		even if others' access is accidental or incidental to your goals.</li>
+	</ul>
+
+	<p align="justify">If your work contains any statement or code that was not written by you, you must clearly identify the derived work and cite the source. If you are paraphrasing an idea you read elsewhere, you must acknowledge the source. Using existing material without proper citation is plagiarism, a form of cheating. If there is any question about whether the material is permitted, you must get permission in advance.
+	<br><br>
+	It is not considered cheating to clarify vague points in the assignments, lectures, lecture notes, or to give help or receive help in using the computer systems, compilers, or other facilities.
+	<br><br>
+	Any violation of this policy is cheating. The minimum penalty for cheating (including plagiarism) will be a zero grade for the whole assignment; a typical penalty
+	will be <strong>0</strong> on the project. 
+	Dishonesty while discussing an academic integrity issue (i.e. lying to course staff) usually results in an 'F' in the course. 
+	All violations of this collaboration policy will be referred to the appropriate University disciplinary board, with possible additional disciplinary action. 
+	For more information, see the <a href="https://teaching.uoregon.edu/resources/academic-integrity-uo">University Policy on Academic Integrity</a>.
+	<br><br>
+	If you have any question about how this policy applies in a particular situation, ask the instructors or TAs for clarification.
+	</p>
+
+
+
+</div>
+</article>
+
+
+
+
+<!-- Schedule -->
+<article id="schedule" class="wrapper style3">
+<div class="container">
+	<header>
+		<h2>Schedule</h2>
+	</header>
+
+
+	<table>
+		<tr align="justify">
+			<th><strong> Date </strong></th>
+			<th><strong> Topic </strong></th>
+			<th><strong> Slides </strong></th>
+		</tr>
+		<tr align="justify">
+			<th>Sep 30</th>
+			<th>Relational Model &amp; Algebra</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 2</th>
+			<th>Structured Query Language</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 7</th>
+			<th>Storage</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 9</th>
+			<th>Searching &amp; Indexing I</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 14</th>
+			<th>Searching &amp; Indexing II</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 16</th>
+			<th>Quiz 1</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 21</th>
+			<th>Hashing</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 23</th>
+			<th>LSM-Trees</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 28</th>
+			<th>Storage Models and Filters</th>
+		</tr>
+		<tr align="justify">
+			<th>Oct 30</th>
+			<th>Query Processing I</th>
+		</tr>
+		<tr align="justify">
+			<th>Nov 4</th>
+			<th>Sorting and Transactions</th>
+		</tr>
+		<tr align="justify">
+			<th>Nov 6</th>
+			<th>Quiz 2</th>
+		</tr>
+
+		<tr align="justify">
+			<th>Nov 11</th>
+			<th>Concurrency Control I</th>
+		</tr>
+
+		<tr align="justify">
+			<th>Nov 13</th>
+			<th>Two-Phase Locking</th>
+		</tr>
+
+		<tr align="justify">
+			<th>Nov 18</th>
+			<th>Time-Stamp Ordering</th>
+		</tr>
+
+		<tr align="justify">
+			<th>Nov 20</th>
+			<th>MVCC</th>
+		</tr>
+
+		<tr align="justify">
+			<th>Nov 25</th>
+			<th>Durability</th>
+		</tr>
+
+		<tr align="justify">
+			<th>Nov 27</th>
+			<th>Distributed Databases</th>
+		</tr>
+	</table>
+
+
+</div>
+</article>
+
+
+
+<!-- Assignments -->
+<article id="assignments" class="wrapper style3">
+<div class="container">
+	<header>
+		<h2>Assignments</h2>
+	</header>
+
+	<table>
+		<tr align="justify">
+			<th><strong> Name </strong></th>
+			<th><strong> Release Date </strong></th>
+			<th><strong> Due Data </strong></th>
+		</tr>
+		<tr align="justify">
+			<th><a href="">Assignment 1</a></th>
+			<th>Oct 7, 2025</th>
+			<th>Oct 28, 2025</th>
+		</tr>
+		<tr align="justify">
+			<th><a href="">Assignment 2</a></th>
+			<th>Oct 29, 2025</th>
+			<th>Nov 13, 2025</th>
+		</tr>
+		<tr align="justify">
+			<th><a href="">Assignment 3</a></th>
+			<th>Nov 14, 2025</th>
+			<th>Nov 30, 2025</th>
+		</tr>
+	</table>
+
+</div>
+</article>
+
+
+<!-- Cool Links -->
+<article id="db-links" class="wrapper style3">
+<div class="container">
+	<header>
+		<h2>Cool Links</h2>
+	</header>
+
+	<ul align="justify">
+		<li><a href="https://db-engines.com/en/ranking">DB Rankings</a></li>
+		<li><a href="https://missing.csail.mit.edu/">Shell, Git, and many more</a></li>
+		<li><a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html">Data Structure Visualization</a></li>
+	</ul>
+
+</div>
+</article>
+
+
+
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>
